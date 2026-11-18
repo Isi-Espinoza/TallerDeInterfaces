@@ -11,7 +11,7 @@ El proyecto **"Huellas Sonoras"** es una aplicación web interactiva de sonifica
 * **Síntesis en Tiempo Real:** Impulsado por la *Web Audio API*, permite interpretar las imágenes utilizando distintos timbres instrumentales (Piano Acústico, Marimba Cálida y Pad Ambiental).
 * **Registro y Exportación:** El sistema permite grabar el recorrido del usuario sobre la obra, reproducir la secuencia de luz y sonido, y exportar la composición resultante directamente como un archivo de audio en formato `.wav`.
 
-En esencia, el proyecto convierte la exploración visual en una experiencia sinestésica, permitiendo que cada obra de arte y cada trazo del usuario generen una firma acústica única e irrepetible.
+El proyecto convierte la exploración visual en una experiencia sinestésica, permitiendo que cada obra de arte y cada trazo del usuario generen una firma acústica única e irrepetible.
 
 ## Estructura del Repositorio
 
