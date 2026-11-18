@@ -4,7 +4,7 @@ Este repositorio contiene la documentación y el desarrollo completo del proyect
 
 ## Descripción del Proyecto
 
-**"Huellas Sonoras"** es una aplicación web interactiva de sonificación de imágenes que transforma los datos visuales de cualquier fotografía o pintura en música sintetizada en tiempo real. A través de una interfaz minimalista con estética neón, el usuario explora una imagen oscurecida utilizando una "linterna focal" controlada por el cursor. A medida que el foco ilumina distintas áreas del lienzo, el motor de audio analiza los píxeles y traduce sus propiedades visuales en sonido:
+El proyecto **"Huellas Sonoras"** es una aplicación web interactiva de sonificación de imágenes que transforma los datos visuales de cualquier fotografía o pintura en música sintetizada en tiempo real. A través de una interfaz minimalista con estética neón, el usuario explora una imagen oscurecida utilizando una "linterna focal" controlada por el cursor. A medida que el foco ilumina distintas áreas del lienzo, el motor de audio analiza los píxeles y traduce sus propiedades visuales en sonido:
 
 * **Luminancia a Frecuencia (Notas):** El nivel de brillo determina la altura musical; las zonas oscuras o en sombra emiten notas graves, mientras que los puntos claros y luminosos generan notas agudas.
 * **Saturación a Timbre (Textura):** La intensidad del color controla los filtros de audio, logrando que los tonos vivos suenen brillantes y resonantes, y los colores apagados produzcan texturas más suaves.
