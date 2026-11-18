@@ -14,6 +14,10 @@ El proyecto **"Generación de Arcilla"** es una pieza de sonificación que tradu
 | **Mejor Ranking en Dobles** | **Contrabajo** / Registro grave | Proporciona una base sólida y un registro grave distintivo para destacar a las figuras en esta modalidad. |
 | **Año del Mejor Ranking** | **Violín** / Línea melódica | Guía el recorrido cronológico de los datos a través del tiempo (1937–2025), marcando la evolución y el relevo generacional. |
 
+* **Justificación Pedagógica:**
+
+El proyecto fomenta la comprensión del análisis de datos y la representación paramétrica mediante la sonificación, vinculando información cuantitativa y categórica con el diseño acústico. A través de la traducción de métricas históricas a instrumentos MIDI, el estudiante experimenta cómo la audición puede utilizarse como un canal analítico alternativo, facilitando la lectura de patrones temporales, jerarquías de rendimiento y relaciones cuantitativas de forma intuitiva y expresiva.
+
 ## Estructura del Repositorio
 
 * **`basededatos/`** : Contiene el dataset original en formato CSV (`basedatostenis.csv`) con las métricas del tenis profesional chileno.
