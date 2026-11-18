@@ -8,7 +8,7 @@ El proyecto **"Generación de Arcilla"** es una pieza de sonificación que tradu
 
 ## Matriz y Tabla de Mapeo de Datos
 
-| Variable <br> (`basedatostenis.csv`) | Instrumento / <br> Parámetro Musical | Justificación Metodológica |
+| Variable <br> (`basedatostenis.csv`) | Instrumento / <br> Parámetro Musical | Justificación |
 | :--- | :--- | :--- |
 | **Mejor Ranking Individual** | **Piano** / Escala invertida | Las notas más agudas se generan cuando el tenista alcanza la cima (puestos más altos) del circuito mundial. |
 | **Mejor Ranking en Dobles** | **Contrabajo** / Registro grave | Proporciona una base sólida y un registro grave distintivo para destacar a las figuras en esta modalidad. |
