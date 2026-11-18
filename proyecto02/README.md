@@ -1,4 +1,4 @@
-# Proyecto 02: Edición de Sonido y Experiencia Educativa Interactiva
+# Proyecto 02 | Edición de Sonido y Experiencia Educativa Interactiva
 
 Este repositorio contiene la documentación y el desarrollo completo del proyecto 2 para el **Taller de Interfaces**.
 
