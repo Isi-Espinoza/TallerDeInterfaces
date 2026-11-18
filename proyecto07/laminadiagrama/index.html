@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONSOLA - VO2 | Diagrama Esquemático</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #121212;
+            font-family: 'Courier Prime', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 15px;
+            color: #2c221e;
+            overflow: hidden;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL DE LA LÁMINA --- */
+        .board-container {
+            width: 100%;
+            max-width: 1440px;
+            height: calc(100vh - 30px);
+            max-height: 860px;
+            aspect-ratio: 16 / 9;
+            background-image: url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 100px rgba(0, 0, 0, 0.2);
+            padding: 20px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed rgba(44, 34, 30, 0.4);
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+        .header-title-box {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .e02-tag {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            background-color: #2c221e;
+            color: #d1b18a;
+            padding: 2px 14px;
+            border-radius: 3px;
+            transform: rotate(-90deg);
+            transform-origin: center;
+            letter-spacing: 2px;
+            position: absolute;
+            left: -64px;
+            top: 50%;
+            margin-top: -28px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.4);
+        }
+
+        .title-group {
+            margin-left: 0;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1;
+            color: #2c221e;
+            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2);
+        }
+
+        .subtitle {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+
+        .author-box {
+            border: 1.5px solid #2c221e;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 11px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- CONTENEDOR CENTRAL --- */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 15px 0;
+            flex-grow: 1;
+            min-height: 0;
+        }
+
+        .diagram-card {
+            background-image: url('fondo.jpg');
+            background-size: cover;
+            border: 2px dashed rgba(44, 34, 30, 0.55);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.08);
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .card-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(44, 34, 30, 0.3);
+            padding-bottom: 6px;
+        }
+
+        /* --- VISOR DE IMAGEN AMPLIADA CON NÚMEROS FLOTANTES --- */
+        .zoom-img-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 1.5px dashed rgba(44, 34, 30, 0.4);
+            border-radius: 6px;
+            padding: 10px;
+            overflow: hidden;
+            position: relative;
+            min-height: 0;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .zoom-circuit-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            filter: contrast(130%) brightness(102%);
+            display: block;
+            margin-left: 55px; /* Desplazamiento sutil hacia la derecha de la imagen */
+        }
+
+        /* Círculos numerados posicionados sobre el circuito (desplazados a la derecha) */
+        .circuit-badge {
+            position: absolute;
+            background: #2c221e;
+            color: #e5cdb0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4), inset 0 0 3px rgba(255,255,255,0.2);
+            border: 1.5px solid #d1b18a;
+            z-index: 10;
+        }
+
+        .badge-1 { top: 56%; left: 24%; }       /* Arduino UNO (Desplazado a la derecha) */
+        .badge-2 { top: 30%; left: 52%; }       /* Botón Arcade */
+        .badge-3 { top: 30%; left: 63.5%; }     /* Botón Reset */
+        .badge-4 { top: 87%; left: 53.6%; }     /* Fader Deslizante */
+        .badge-5 { top: 87%; left: 60.3%; }     /* Potenciómetros */
+        .badge-6 { top: 49%; left: 88%; }       /* Anillo NeoPixel */
+
+        /* --- TARJETA DE ALIMENTACIÓN (12PX) --- */
+        .power-info-box {
+            position: absolute;
+            top: 75px;
+            left: 35px;
+            background: rgba(44, 34, 30, 0.06);
+            border: 1.5px dashed rgba(44, 34, 30, 0.45);
+            border-radius: 6px;
+            padding: 8px 12px;
+            z-index: 20;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            width: 210px;
+        }
+
+        .power-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #2c221e;
+            margin-bottom: 4px;
+            border-bottom: 1px dotted rgba(44, 34, 30, 0.3);
+            padding-bottom: 2px;
+            text-align: center;
+        }
+
+        .power-item {
+            font-size: 12px;
+            font-weight: normal;
+            color: #2c221e;
+            opacity: 0.95;
+            margin-bottom: 3px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* --- TARJETA DE DESCRIPCIÓN DE COMPONENTES (12PX) --- */
+        .components-info-box {
+            position: absolute;
+            top: 158px;
+            left: 35px;
+            background: rgba(44, 34, 30, 0.06);
+            border: 1.5px dashed rgba(44, 34, 30, 0.45);
+            border-radius: 6px;
+            padding: 10px 12px;
+            z-index: 20;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            width: 210px;
+        }
+
+        .comp-box-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #2c221e;
+            margin-bottom: 6px;
+            border-bottom: 1px dotted rgba(44, 34, 30, 0.3);
+            padding-bottom: 2px;
+            text-align: center;
+        }
+
+        .comp-item {
+            font-size: 12px;
+            font-weight: normal;
+            color: #2c221e;
+            opacity: 0.95;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .comp-item strong {
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        /* --- GRILLA DE ETIQUETAS INFERIORES EN 12PX --- */
+        .elements-labels-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .element-label-box {
+            background: rgba(44, 34, 30, 0.05);
+            border: 1.5px dashed rgba(44, 34, 30, 0.45);
+            border-radius: 6px;
+            padding: 8px 6px;
+            text-align: center;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .elem-num {
+            background: #2c221e;
+            color: #e5cdb0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+            box-shadow: inset 0 0 3px rgba(0,0,0,0.4);
+        }
+
+        .elem-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #2c221e;
+            margin-bottom: 2px;
+            border-bottom: 1px dotted rgba(44, 34, 30, 0.3);
+            padding-bottom: 2px;
+            width: 100%;
+        }
+
+        .elem-desc {
+            font-size: 12px;
+            font-weight: normal;
+            color: #2c221e;
+            opacity: 0.95;
+            line-height: 1.3;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 2px dashed rgba(44, 34, 30, 0.4);
+            padding-top: 8px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .footer-right {
+            border: 1px solid #2c221e;
+            padding: 3px 10px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 11px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="board-container">
+        
+        <!-- HEADER -->
+        <header>
+            <div class="header-title-box">
+                <span class="e02-tag">E02</span>
+                <div class="title-group">
+                    <h1>CONSOLA - VO2</h1>
+                    <div class="subtitle">DIAGRAMA ESQUEMÁTICO | MAPA DE CONEXIONES FÍSICAS Y ASIGNACIÓN DE PINES DEL SISTEMA</div>
+                </div>
+            </div>
+            <div class="author-box">
+                Isidora Espinoza Lillo
+            </div>
+        </header>
+
+        <!-- CONTENIDO CENTRAL -->
+        <div class="main-content">
+            <div class="diagram-card">
+                
+                <!-- TARJETA DE ALIMENTACIÓN -->
+                <div class="power-info-box">
+                    <div class="power-title">⚡ ALIMENTACIÓN</div>
+                    <div class="power-item"><span><strong>Negativo:</strong></span> <span>GND</span></div>
+                    <div class="power-item"><span><strong>Positivo:</strong></span> <span>+5V</span></div>
+                </div>
+
+                <!-- TARJETA DE DESCRIPCIÓN DE COMPONENTES -->
+                <div class="components-info-box">
+                    <div class="comp-box-title">⚙️ COMPONENTES</div>
+                    <div class="comp-item"><strong>1. Arduino:</strong> Procesa el código central.</div>
+                    <div class="comp-item"><strong>2. Botón Arcade:</strong> Pulso digital (10).</div>
+                    <div class="comp-item"><strong>3. Botón Reset:</strong> Reinicio (8).</div>
+                    <div class="comp-item"><strong>4. Fader:</strong> Control analógico (A0).</div>
+                    <div class="comp-item"><strong>5. Potenciómetros:</strong> Tonos (A2/A4).</div>
+                    <div class="comp-item"><strong>6. NeoPixel:</strong> Iluminación RGB (12).</div>
+                </div>
+
+                <div class="card-title">
+                    <span>🔍</span> VISTA AMPLIADA DEL CIRCUITO Y DISTRIBUCIÓN DE COMPONENTES
+                </div>
+                
+                <!-- IMAGEN AMPLIADA CON NÚMEROS FLOTANTES -->
+                <div class="zoom-img-container">
+                    <div class="circuit-badge badge-1">1</div>
+                    <div class="circuit-badge badge-2">2</div>
+                    <div class="circuit-badge badge-3">3</div>
+                    <div class="circuit-badge badge-4">4</div>
+                    <div class="circuit-badge badge-5">5</div>
+                    <div class="circuit-badge badge-6">6</div>
+
+                    <img src="circuito.jpg" alt="Diagrama Esquemático Ampliado" class="zoom-circuit-img">
+                </div>
+
+                <!-- ETIQUETAS INFERIORES -->
+                <div class="elements-labels-grid">
+                    <div class="element-label-box">
+                        <div class="elem-num">1</div>
+                        <div>
+                            <div class="elem-title">ARDUINO UNO</div>
+                            <div class="elem-desc">Placa Central</div>
+                        </div>
+                    </div>
+                    <div class="element-label-box">
+                        <div class="elem-num">2</div>
+                        <div>
+                            <div class="elem-title">BOTÓN ARCADE</div>
+                            <div class="elem-desc">Pin Digital 10</div>
+                        </div>
+                    </div>
+                    <div class="element-label-box">
+                        <div class="elem-num">3</div>
+                        <div>
+                            <div class="elem-title">BOTÓN RESET</div>
+                            <div class="elem-desc">Pin Digital 8</div>
+                        </div>
+                    </div>
+                    <div class="element-label-box">
+                        <div class="elem-num">4</div>
+                        <div>
+                            <div class="elem-title">FADER DESLIZANTE</div>
+                            <div class="elem-desc">Pin Analógico A0</div>
+                        </div>
+                    </div>
+                    <div class="element-label-box">
+                        <div class="elem-num">5</div>
+                        <div>
+                            <div class="elem-title">POTENCIÓMETROS</div>
+                            <div class="elem-desc">Pines A2 / A4</div>
+                        </div>
+                    </div>
+                    <div class="element-label-box">
+                        <div class="elem-num">6</div>
+                        <div>
+                            <div class="elem-title">ANILLO NEOPIXEL</div>
+                            <div class="elem-desc">Pin Digital 12</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-right">
+                Diseño de Interfaces | U2 | Interfaces Físicas
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
