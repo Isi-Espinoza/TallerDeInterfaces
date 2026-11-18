@@ -8,7 +8,7 @@ Este repositorio contiene la documentación y el desarrollo completo del proyect
 
 * **Mecánica del juego:** El jugador recorre un laberinto a ciegas donde, en cada etapa, se reproduce un estímulo sonoro específico que representa un riesgo (como una fuga de gas, un cortocircuito, una inundación, una motosierra, un enjambre o una jauría de perros).
 * **Interacción y aprendizaje:** Para poder avanzar, el usuario debe escuchar con atención, identificar la fuente del peligro y asociar el audio con su ícono visual correspondiente. El sistema entrega retroalimentación visual y sonora inmediata según la decisión tomada.
-* **Objetivo pedagógico:** Desarrollar la agudeza auditiva, la atención y la capacidad de reacción rápida frente a alertas acústicas del entorno mediante una dinámica lúdica.
+* **Justificación pedagógico:** Desarrollar la agudeza auditiva, la atención y la capacidad de reacción rápida frente a alertas acústicas del entorno mediante una dinámica lúdica.
 
 ## Estructura del Repositorio
 
