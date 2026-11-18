@@ -1,4 +1,4 @@
-# Proyecto 06 | Consola y Sintetizador Interactivo
+# Proyecto 07 | Consola y Sintetizador Interactivo
 
 Este repositorio contiene la documentación y el desarrollo completo del proyecto 6 para el **Taller de Interfaces**.
 
