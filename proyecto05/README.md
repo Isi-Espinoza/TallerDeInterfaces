@@ -1,25 +1,27 @@
-# Proyecto 05 | Huellas Sonoras: Sonificación de Imágenes y Plataforma Interactiva
+# Proyecto 04 | Sonificación de Datos — Tenis Profesional Chileno
 
-Este repositorio contiene la documentación y el desarrollo completo del proyecto 5 para el **Taller de Interfaces**.
+Este repositorio contiene la documentación y el desarrollo completo del proyecto 4 para el **Taller de Interfaces**.
 
 ## Descripción del Proyecto
 
-El proyecto **"Huellas Sonoras"** es una aplicación web interactiva de sonificación de imágenes que transforma los datos visuales de cualquier fotografía o pintura en música sintetizada en tiempo real. A través de una interfaz minimalista con estética neón, el usuario explora una imagen oscurecida utilizando una "linterna focal" controlada por el cursor. A medida que el foco ilumina distintas áreas del lienzo, el motor de audio analiza los píxeles y traduce sus propiedades visuales en sonido:
+El proyecto **"Generación de Arcilla"** es una pieza de sonificación que traduce la historia y los hitos del tenis nacional en una composición musical. La base de datos utilizada (`basedatostenis.csv`) reúne información de 29 figuras históricas de la disciplina, representando sus mayores logros deportivos a través de tres variables clave.
 
-* **Luminancia a Frecuencia (Notas):** El nivel de brillo determina la altura musical; las zonas oscuras o en sombra emiten notas graves, mientras que los puntos claros y luminosos generan notas agudas.
-* **Saturación a Timbre (Textura):** La intensidad del color controla los filtros de audio, logrando que los tonos vivos suenen brillantes y resonantes, y los colores apagados produzcan texturas más suaves.
-* **Síntesis en Tiempo Real:** Impulsado por la *Web Audio API*, permite interpretar las imágenes utilizando distintos timbres instrumentales (Piano Acústico, Marimba Cálida y Pad Ambiental).
-* **Registro y Exportación:** El sistema permite grabar el recorrido del usuario sobre la obra, reproducir la secuencia de luz y sonido, y exportar la composición resultante directamente como un archivo de audio en formato `.wav`.
+## Matriz y Tabla de Mapeo de Datos
 
-El proyecto convierte la exploración visual en una experiencia sinestésica, permitiendo que cada obra de arte y cada trazo del usuario generen una firma acústica única e irrepetible.
+| Variable <br> (`basedatostenis.csv`) | Instrumento / <br> Parámetro Musical | Justificación Metodológica |
+| :--- | :--- | :--- |
+| **Mejor Ranking Individual** | **Piano** / Escala invertida | Las notas más agudas se generan cuando el tenista alcanza la cima (puestos más altos) del circuito mundial. |
+| **Mejor Ranking en Dobles** | **Contrabajo** / Registro grave | Proporciona una base sólida y un registro grave distintivo para destacar a las figuras en esta modalidad. |
+| **Año del Mejor Ranking** | **Violín** / Línea melódica | Guía el recorrido cronológico de los datos a través del tiempo (1937–2025), marcando la evolución y el relevo generacional. |
 
 ## Estructura del Repositorio
 
-* **`websonificacion/`** : Contiene la interfaz web principal (`index.html`) y el archivo de imagen de soporte (`fondo.jpeg`) optimizados para la experiencia interactiva.
-* **`registresonificacion/`** : Almacena el archivo de audio resultante en formato WAV (`huella_sonora_...wav`) obtenido a partir del proceso de registro de la sonificación visual.
+* **`basededatos/`** : Contiene el dataset original en formato CSV (`basedatostenis.csv`) con las métricas del tenis profesional chileno.
+* **`cancion/`** : Almacena el archivo de audio resultante (`canciontenis.mp3`) exportado desde la sonificación.
+* **`intención/`** : Contiene el registro escrito con el concepto y la justificación metodológica de la obra ("Generación de Arcilla").
 
 ## Tecnologías y Recursos
 
-* **Motor de Audio y Lógica:** JavaScript, HTML5 y *Web Audio API* para el procesamiento y síntesis sonora en tiempo real.
-* **Estrategia de Mapeo Visual:** Traducción paramétrica basada en luminancia (frecuencia) y saturación (timbre).
-* **Formatos y Soportes:** Archivos de imagen estática (`.jpeg`) y registros de audio exportados en alta calidad (`.wav`).
+* **Herramientas de Sonificación:** TwoTone para la traducción paramétrica de variables cuantitativas y categóricas a MIDI.
+* **Mapeo Instrumental:** Piano, Contrabajo y Violín orientados a la lectura analítica y cronológica del deporte.
+* **Formatos y Lenguajes:** Procesamiento de datos estructurados (CSV) y exportación de archivos de audio optimizados (`.mp3`).
