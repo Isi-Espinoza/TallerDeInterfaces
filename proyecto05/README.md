@@ -13,6 +13,10 @@ Este repositorio contiene la documentación y el desarrollo completo del proyect
 
 En esencia, el proyecto convierte la exploración visual en una experiencia sinestésica, permitiendo que cada obra de arte y cada trazo del usuario generen una firma acústica única e irrepetible.
 
+* **Justificación Pedagógica:**
+
+El proyecto promueve el desarrollo de la percepción sinestésica y la traducción intermodal, conectando la expresión visual con el diseño sonoro computacional. A través de la exploración activa con una interfaz lumínica, el estudiante comprende de manera práctica cómo los algoritmos de programación en la web pueden interpretar variables estéticas (luminancia y saturación) y convertirlas en parámetros musicales en tiempo real, vinculando la informática con la creación artística interactiva.
+
 ## Estructura del Repositorio
 
 * **`websonificacion/`** : Contiene la interfaz web principal (`index.html`) y el archivo de imagen de soporte (`fondo.jpeg`) optimizados para la experiencia interactiva.
