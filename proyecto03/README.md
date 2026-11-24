@@ -8,8 +8,7 @@ Desarrollo de un sintetizador de audio digital e interfaz interactiva en tiempo 
 
 ## Demostración en Video
 
-* **Ver en YouTube:** [T03 - Sintetizador Virtual en YouTube](https://www.youtube.com/watch?v=PEGA_AQUI_TU_ENLACE_O_ID)
-* **Video en el repositorio:** [Ver / descargar Sintetizador Virtual.mp4](videofuncionamiento/Sintetizador%20Virtual.mp4)
+[Ver demostración en YouTube — Sintetizador Virtual](https://youtu.be/L7ei7VBB9Hc)
 
 ### Registro del Proceso e Interfaz
 
