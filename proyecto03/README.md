@@ -24,7 +24,7 @@ Desarrollo de un sintetizador de audio digital e interfaz interactiva en tiempo 
 ## Estructura del Repositorio
 
 * **`codigosintetizador/`** : Contiene el parche principal de Max/MSP (`Sintetizador.maxpat`).
-* **`fotos/`** : Registro visual de la interfaz tanto en modo edición como en modo presentación.
+* **`fotos/`** : Registro visual de la interfaz tanto en modo edición como en modo presentación (`fotos/modo_edición.jpg`) / (`fotos/modo_presentacion.png`).
 * **`videofuncionamiento/`** : Carpeta que almacena el respaldo local del video de demostración.
 
 ## Tecnologías y Recursos
