@@ -21,6 +21,13 @@ Desarrollo de un sintetizador de audio digital e interfaz interactiva en tiempo 
 * **Modo Edición:** Vista del parche de trabajo en Max/MSP durante el desarrollo y cableado de objetos.
 * **Modo Presentación:** Vista limpia de la interfaz orientada al uso interactivo y control en tiempo real.
 
+### Guía de Uso de Controles
+
+1. **Activar motor DSP (`ezdac~`):** Haz clic en el ícono del altavoz principal para encender el procesamiento de audio en tiempo real.
+2. **Control de altura (`kslider` / `live.dial`):** Pulsa teclas en el teclado virtual para notas afinadas o gira el dial para barridos continuos (*glissando*).
+3. **Regulación de salida (`live.gain~`):** Desliza el atenuador maestro para controlar la amplitud sonora y evitar saturación digital.
+4. **Monitoreo visual (`scope~`):** Observa el osciloscopio gráfico para visualizar en vivo los cambios en la morfología de la onda.
+
 ## Estructura del Repositorio
 
 * **`codigosintetizador/`** : Contiene el parche principal de Max/MSP (`Sintetizador.maxpat`).
