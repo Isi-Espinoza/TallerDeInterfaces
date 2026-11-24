@@ -10,13 +10,13 @@ Desarrollo de un sintetizador de audio digital e interfaz interactiva en tiempo 
 
 ### Demostración en Video
 
-[Ver demostración en YouTube — Sintetizador Virtual](https://youtu.be/L7ei7VBB9Hc)
+[Video YouTube | Sintetizador Virtual](https://youtu.be/L7ei7VBB9Hc)
 
 ### Registro del Proceso e Interfaz
 
 | Modo Edición | Modo Presentación |
 | :---: | :---: |
-| ![Interfaz en modo edición](fotos/modo_edicion.jpg) | ![Interfaz en modo presentación](fotos/modo_presentacion.png) |
+| <img src="fotos/modo_edicion.jpg" alt="Interfaz en modo edición" width="420"> | <img src="fotos/modo_presentacion.png" alt="Interfaz en modo presentación" width="420"> |
 
 * **Modo Edición:** Vista del parche de trabajo en Max/MSP durante el desarrollo y cableado de objetos.
 * **Modo Presentación:** Vista limpia de la interfaz orientada al uso interactivo y control en tiempo real.
