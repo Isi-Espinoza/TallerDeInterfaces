@@ -8,9 +8,17 @@ Desarrollo de un sintetizador de audio digital e interfaz interactiva en tiempo 
 
 ## Demostración en Video
 
-<div align="center">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/..." title="T03 - Sintetizador Virtual" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+* **Ver en YouTube:** [T03 - Sintetizador Virtual en YouTube](https://www.youtube.com/watch?v=PEGA_AQUI_TU_ENLACE_O_ID)
+* **Video en el repositorio:** [Ver / descargar Sintetizador Virtual.mp4](videofuncionamiento/Sintetizador%20Virtual.mp4)
+
+### Registro del Proceso e Interfaz
+
+| Modo Edición | Modo Presentación |
+| :---: | :---: |
+| ![Interfaz en modo edición](fotos/modo_edición.jpg) | ![Interfaz en modo presentación](fotos/modo_presentacion.png) |
+
+* **Modo Edición (`fotos/modo_edición.jpg`):** Vista del parche de trabajo en Max/MSP durante el desarrollo y cableado de objetos.
+* **Modo Presentación (`fotos/modo_presentacion.png`):** Vista limpia de la interfaz orientada al uso interactivo y control en tiempo real.
 
 ## Estructura del Repositorio
 
