@@ -18,8 +18,8 @@ Desarrollo de un sintetizador de audio digital e interfaz interactiva en tiempo 
 | :---: | :---: |
 | ![Interfaz en modo edición](fotos/modo_edicion.jpg) | ![Interfaz en modo presentación](fotos/modo_presentacion.png) |
 
-* **Modo Edición (`fotos/modo_edición.jpg`):** Vista del parche de trabajo en Max/MSP durante el desarrollo y cableado de objetos.
-* **Modo Presentación (`fotos/modo_presentacion.png`):** Vista limpia de la interfaz orientada al uso interactivo y control en tiempo real.
+* **Modo Edición:** Vista del parche de trabajo en Max/MSP durante el desarrollo y cableado de objetos.
+* **Modo Presentación:** Vista limpia de la interfaz orientada al uso interactivo y control en tiempo real.
 
 ## Estructura del Repositorio
 
