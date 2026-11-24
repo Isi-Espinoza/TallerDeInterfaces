@@ -6,7 +6,7 @@ Este repositorio contiene la documentación y el desarrollo completo del proyect
 
 Desarrollo de un sintetizador de audio digital e interfaz interactiva en tiempo real diseñado en el entorno Max/MSP. El sistema combina controles gráficos y parámetros de síntesis sonora con retroalimentación visual, priorizando la claridad operativa y la usabilidad. Funciona mediante síntesis digital interna con osciladores dedicados, operando de forma autónoma sin requerir archivos o muestras de audio externas.
 
-## Registro
+## Registro del Proyecto
 
 ### Demostración en Video
 
