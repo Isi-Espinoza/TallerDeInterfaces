@@ -1,0 +1,2757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Redescubrimiento del Carménère — Línea Temporal & Viñas de Chile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --champagne: #F2E5C6;
+      --sand-gold: #F2D9A0;
+      --burgundy: #75162D;
+      --dark-maroon: #560B18;
+      --deep-wine: #3B010B;
+      --gold-border: rgba(242, 217, 160, 0.34);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at 20% 15%, var(--dark-maroon) 0%, var(--deep-wine) 72%);
+      color: var(--champagne);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(242, 217, 160, 0.04) 1px, transparent 0);
+      background-size: 24px 24px;
+      z-index: 0;
+    }
+
+    .carmenere-word {
+      font-style: italic;
+      color: var(--sand-gold);
+      font-size: 1.24em;
+      display: inline-block;
+      letter-spacing: 0.01em;
+    }
+
+    /* Pantalla de Bienvenida / Entrada */
+    .intro-screen {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .intro-card {
+      width: 100%;
+      background: linear-gradient(160deg, rgba(117, 22, 45, 0.45), rgba(86, 11, 24, 0.8));
+      border: 1px solid var(--gold-border);
+      border-radius: 24px;
+      padding: 42px 34px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .intro-eyebrow {
+      font-size: 12.5px;
+      line-height: 1.2;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      font-weight: 700;
+    }
+
+    .intro-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(38px, 5.4vw, 58px);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--champagne);
+      max-width: 780px;
+    }
+
+    .intro-subtitle {
+      font-size: clamp(16px, 2vw, 19.5px);
+      line-height: 1.6;
+      color: rgba(242, 229, 198, 0.9);
+      max-width: 680px;
+    }
+
+    .start-btn {
+      margin-top: 10px;
+      min-width: 260px;
+      background: var(--sand-gold);
+      color: var(--deep-wine);
+      border: 1px solid var(--sand-gold);
+      padding: 18px 42px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+    }
+
+    .start-btn:hover {
+      background: var(--champagne);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(242, 217, 160, 0.24);
+    }
+
+    .intro-author {
+      margin-top: 18px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 15.5px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+    }
+
+    .camera-permission-box {
+      width: 100%;
+      background: rgba(59, 1, 11, 0.72);
+      border: 1px solid rgba(242, 217, 160, 0.26);
+      border-radius: 18px;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      text-align: left;
+    }
+
+    .cam-copy strong {
+      display: block;
+      font-size: 14px;
+      color: var(--sand-gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .cam-copy p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: rgba(242, 229, 198, 0.88);
+    }
+
+    .cam-status-text {
+      display: block;
+      margin-top: 5px;
+      font-size: 13px;
+      color: var(--sand-gold);
+      font-weight: 600;
+    }
+
+    .pill-btn {
+      background: rgba(117, 22, 45, 0.65);
+      color: var(--champagne);
+      border: 1px solid var(--gold-border);
+      padding: 9px 17px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .pill-btn:hover, .pill-btn.active {
+      background: var(--sand-gold);
+      color: var(--deep-wine);
+      border-color: var(--sand-gold);
+    }
+
+    /* Contenedor Principal encuadrado en pantalla completa */
+    .app-shell {
+      display: none;
+      position: relative;
+      z-index: 1;
+      max-width: 1380px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 14px 26px 14px;
+      flex-direction: column;
+      min-height: 100vh;
+      gap: 12px;
+    }
+
+    .app-shell.visible {
+      display: flex;
+      animation: fadeSlide 0.35s ease;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-border);
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      font-size: 11.5px;
+      line-height: 1.2;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(30px, 3.6vw, 44px);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--champagne);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Franja de Cámara y Gestos */
+    .persistent-camera-strip {
+      background: linear-gradient(155deg, rgba(117, 22, 45, 0.34), rgba(59, 1, 11, 0.78));
+      border: 1px solid var(--gold-border);
+      border-radius: 16px;
+      padding: 10px 14px;
+      display: grid;
+      grid-template-columns: minmax(175px, 220px) minmax(0, 1fr);
+      gap: 14px;
+      align-items: stretch;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    }
+
+    .camera-telemetry-badge {
+      background: rgba(59, 1, 11, 0.72);
+      border: 1px solid rgba(242, 217, 160, 0.28);
+      border-radius: 14px;
+      padding: 10px 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3px;
+      height: 100%;
+    }
+
+    .camera-telemetry-label {
+      font-size: 10.5px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(242, 229, 198, 0.74);
+      font-weight: 700;
+    }
+
+    .camera-telemetry-value {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--sand-gold);
+      line-height: 1.1;
+    }
+
+    .camera-telemetry-sub {
+      font-size: 12px;
+      color: rgba(242, 229, 198, 0.84);
+    }
+
+    .camera-combined-box {
+      background: rgba(59, 1, 11, 0.62);
+      border: 1px solid rgba(242, 217, 160, 0.28);
+      border-radius: 14px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+      height: 100%;
+    }
+
+    .camera-strip-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      gap: 3px;
+      margin-left: auto;
+      min-width: 0;
+    }
+
+    .sidebar-kicker {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      font-weight: 700;
+    }
+
+    .gesture-state-value {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--sand-gold);
+      line-height: 1.1;
+    }
+
+    .gesture-detail-text {
+      font-size: 13.5px;
+      line-height: 1.38;
+      color: rgba(242, 229, 198, 0.92);
+    }
+
+    .gesture-legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 16px;
+      font-size: 12px;
+      color: rgba(242, 229, 198, 0.85);
+      padding-top: 2px;
+    }
+
+    .gesture-legend span strong {
+      color: var(--sand-gold);
+    }
+
+    .camera-monitor {
+      position: relative;
+      width: 128px;
+      aspect-ratio: 4 / 3;
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(25, 1, 6, 0.94);
+      border: 1px solid rgba(242, 217, 160, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .camera-monitor canvas {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .camera-placeholder {
+      position: absolute;
+      inset: 0;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 6px;
+      background: rgba(38, 2, 9, 0.88);
+    }
+
+    .camera-placeholder.hidden {
+      display: none;
+    }
+
+    .camera-placeholder p {
+      font-size: 11px;
+      line-height: 1.3;
+      color: rgba(242, 229, 198, 0.85);
+    }
+
+    /* VISTA 1: Línea Temporal a Pantalla Completa */
+    .timeline-fullscreen {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(117, 22, 45, 0.38), transparent 68%),
+        linear-gradient(165deg, rgba(117, 22, 45, 0.36), rgba(59, 1, 11, 0.86));
+      border: 1px solid var(--gold-border);
+      border-radius: 20px;
+      padding: 20px 26px;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3);
+      gap: 14px;
+      animation: fadeSlide 0.35s ease;
+    }
+
+    .timeline-fullscreen.hidden {
+      display: none;
+    }
+
+    .timeline-fs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(242, 217, 160, 0.2);
+    }
+
+    .timeline-fs-kicker {
+      font-size: 11.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .timeline-fs-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(28px, 3.3vw, 40px);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--champagne);
+    }
+
+    .timeline-fs-sub {
+      font-size: 14px;
+      line-height: 1.45;
+      color: rgba(242, 229, 198, 0.86);
+      max-width: 440px;
+      text-align: right;
+    }
+
+    /* Flecha de tiempo frontal con hitos de año puntuales */
+    .time-arrow-ribbon {
+      position: relative;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      padding: 8px 34px 8px 10px;
+      background: linear-gradient(90deg, rgba(59, 1, 11, 0.85), rgba(86, 11, 24, 0.92));
+      border: 1px solid rgba(242, 217, 160, 0.36);
+      border-radius: 999px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }
+
+    .time-arrow-ribbon::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      right: 26px;
+      top: 50%;
+      height: 2px;
+      transform: translateY(-50%);
+      background: linear-gradient(90deg, rgba(242, 217, 160, 0.45), var(--sand-gold));
+      z-index: 0;
+    }
+
+    .time-arrow-ribbon::after {
+      content: "";
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 12px solid var(--sand-gold);
+      filter: drop-shadow(0 0 6px rgba(242, 217, 160, 0.55));
+      z-index: 1;
+    }
+
+    .arrow-year-chip {
+      position: relative;
+      z-index: 2;
+      justify-self: center;
+      background: var(--dark-maroon);
+      color: var(--champagne);
+      border: 1px solid rgba(242, 217, 160, 0.45);
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .arrow-year-chip:hover,
+    .arrow-year-chip.active {
+      background: var(--sand-gold);
+      color: var(--deep-wine);
+      border-color: var(--sand-gold);
+      box-shadow: 0 0 14px rgba(242, 217, 160, 0.42);
+    }
+
+    .timeline-track {
+      flex: 1;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding: 4px 0;
+      align-items: stretch;
+    }
+
+    .hito-node {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(175deg, rgba(86, 11, 24, 0.68), rgba(59, 1, 11, 0.86));
+      border: 1px solid rgba(242, 217, 160, 0.25);
+      border-radius: 20px;
+      color: var(--champagne);
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 18px 16px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .hito-node:hover {
+      transform: translateY(-4px);
+      border-color: var(--sand-gold);
+      background: linear-gradient(175deg, rgba(117, 22, 45, 0.72), rgba(86, 11, 24, 0.92));
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.34);
+    }
+
+    .hito-node.active {
+      border-color: var(--sand-gold);
+      background: linear-gradient(175deg, rgba(117, 22, 45, 0.78), rgba(86, 11, 24, 0.96));
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.38);
+    }
+
+    .node-dot {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--dark-maroon);
+      border: 2px solid var(--sand-gold);
+      outline: 4px solid rgba(242, 217, 160, 0.15);
+      display: grid;
+      place-items: center;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--sand-gold);
+      transition: all 0.3s ease;
+      margin-bottom: 2px;
+    }
+
+    .hito-node:hover .node-dot,
+    .hito-node.active .node-dot {
+      background: var(--sand-gold);
+      color: var(--deep-wine);
+      transform: scale(1.06);
+      outline-color: rgba(242, 217, 160, 0.3);
+      box-shadow: 0 0 22px rgba(242, 217, 160, 0.45);
+    }
+
+    .node-year {
+      font-size: 12px;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      font-weight: 700;
+    }
+
+    .node-label {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--champagne);
+    }
+
+    .node-desc {
+      font-size: 14px;
+      line-height: 1.45;
+      color: rgba(242, 229, 198, 0.84);
+      max-width: 245px;
+    }
+
+    .node-cta {
+      margin-top: 4px;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--sand-gold);
+    }
+
+    .timeline-fs-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding-top: 10px;
+      border-top: 1px solid rgba(242, 217, 160, 0.2);
+      font-size: 13.5px;
+      color: rgba(242, 229, 198, 0.86);
+    }
+
+    /* VISTA 2: Ventana de Cápsulas e Información del Hito Seleccionado */
+    .hito-window {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      animation: fadeSlide 0.35s ease;
+    }
+
+    .hito-window.active {
+      display: flex;
+    }
+
+    .window-toolbar {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: rgba(86, 11, 24, 0.68);
+      border: 1px solid var(--gold-border);
+      border-radius: 14px;
+      padding: 8px 14px;
+    }
+
+    .window-quick-hitos {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .quick-hito-btn {
+      background: rgba(59, 1, 11, 0.65);
+      color: var(--champagne);
+      border: 1px solid rgba(242, 217, 160, 0.24);
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .quick-hito-btn:hover,
+    .quick-hito-btn.active {
+      background: var(--sand-gold);
+      color: var(--deep-wine);
+      border-color: var(--sand-gold);
+    }
+
+    #stage-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stage {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .narrative-panel {
+      background: linear-gradient(160deg, rgba(117, 22, 45, 0.44), rgba(86, 11, 24, 0.82));
+      border: 1px solid var(--gold-border);
+      border-radius: 18px;
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+    }
+
+    .narrative-top {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 8px;
+    }
+
+    .hito-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      border: 1px solid var(--gold-border);
+      padding: 5px 12px;
+      border-radius: 999px;
+      width: fit-content;
+      background: rgba(59, 1, 11, 0.55);
+    }
+
+    .narrative-panel h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(26px, 2.8vw, 35px);
+      line-height: 1.08;
+      color: var(--champagne);
+      margin-top: 2px;
+    }
+
+    .narrative-panel .lead {
+      font-size: 14.5px;
+      line-height: 1.45;
+      color: rgba(242, 229, 198, 0.94);
+    }
+
+    .three-box {
+      flex: 1;
+      min-height: 225px;
+      margin-top: 4px;
+      border-radius: 15px;
+      background: radial-gradient(circle at 50% 42%, rgba(117, 22, 45, 0.62), rgba(28, 1, 6, 0.96));
+      border: 1px solid rgba(242, 217, 160, 0.28);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .three-box-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(242, 217, 160, 0.16);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      font-weight: 700;
+    }
+
+    .three-controls-bar {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .three-mode-btn {
+      background: rgba(59, 1, 11, 0.72);
+      color: var(--champagne);
+      border: 1px solid rgba(242, 217, 160, 0.26);
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .three-mode-btn:hover,
+    .three-mode-btn.active {
+      background: var(--sand-gold);
+      color: var(--deep-wine);
+      border-color: var(--sand-gold);
+    }
+
+    .three-canvas-host {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      min-height: 155px;
+      cursor: grab;
+      touch-action: none;
+      display: block;
+    }
+
+    .three-canvas-host:active {
+      cursor: grabbing;
+    }
+
+    .three-hint-pill {
+      position: absolute;
+      right: 10px;
+      bottom: 8px;
+      pointer-events: none;
+      background: rgba(38, 2, 9, 0.72);
+      border: 1px solid rgba(242, 217, 160, 0.24);
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 10.5px;
+      color: rgba(242, 229, 198, 0.86);
+      letter-spacing: 0.04em;
+    }
+
+    .three-caption {
+      padding: 9px 14px 10px;
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--sand-gold);
+      border-top: 1px solid rgba(242, 217, 160, 0.14);
+      background: rgba(38, 2, 9, 0.45);
+    }
+
+    .stage-footer-status {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-top: 8px;
+      border-top: 1px solid rgba(242, 217, 160, 0.18);
+    }
+
+    .step-counter {
+      font-size: 12.5px;
+      color: var(--sand-gold);
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .capsules-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .capsules-header span {
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      font-weight: 700;
+    }
+
+    .capsule-grid {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .capsule {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(86, 11, 24, 0.8);
+      border: 1px solid var(--gold-border);
+      border-radius: 15px;
+      padding: 13px 18px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .capsule:hover {
+      border-color: var(--sand-gold);
+      background: rgba(117, 22, 45, 0.58);
+    }
+
+    .capsule.open {
+      background: var(--champagne);
+      color: var(--deep-wine);
+      border-color: var(--sand-gold);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .capsule-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .capsule-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--sand-gold);
+    }
+
+    .capsule.open .capsule-tag { color: var(--burgundy); }
+
+    .capsule-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 2px;
+      line-height: 1.1;
+    }
+
+    .capsule-toggle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+
+    .capsule-body {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.28s ease;
+      font-size: 14px;
+      line-height: 1.48;
+    }
+
+    .capsule.open .capsule-body {
+      max-height: 170px;
+      opacity: 1;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(59, 1, 11, 0.16);
+    }
+
+    .capsule-meta {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--burgundy);
+    }
+
+    /* Hito IV: Mapa + Cápsulas de zona a pantalla completa o ventana de viña enriquecida */
+    .map-stage {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.02fr 1.18fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .chile-map-card {
+      background: linear-gradient(160deg, rgba(117, 22, 45, 0.34), rgba(59, 1, 11, 0.72));
+      border: 1px solid var(--gold-border);
+      border-radius: 18px;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .map-caption {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      font-weight: 700;
+    }
+
+    .chile-map-frame {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      height: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+    }
+
+    .chile-vector-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .chile-outline-stroke {
+      fill: rgba(242, 229, 198, 0.07);
+      stroke: var(--champagne);
+      stroke-width: 1.85;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 8px rgba(242, 217, 160, 0.24));
+    }
+
+    .region-pointer-line {
+      stroke: rgba(242, 217, 160, 0.52);
+      stroke-width: 1.25;
+      stroke-dasharray: 2.5 2;
+      transition: stroke 0.2s ease, opacity 0.2s ease;
+    }
+
+    .winery-pin.active .region-pointer-line,
+    .winery-pin:hover .region-pointer-line {
+      stroke: var(--sand-gold);
+      stroke-width: 1.8;
+      stroke-dasharray: none;
+    }
+
+    .region-num-label {
+      fill: rgba(242, 217, 160, 0.85);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-anchor: end;
+      paint-order: stroke;
+      stroke: var(--deep-wine);
+      stroke-width: 3.2px;
+      stroke-linejoin: round;
+    }
+
+    .winery-pin.active .region-num-label,
+    .winery-pin:hover .region-num-label {
+      fill: var(--champagne);
+      font-size: 11.5px;
+    }
+
+    .winery-pin {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .winery-pin .pulse-ring {
+      fill: none;
+      stroke: var(--sand-gold);
+      stroke-width: 1.5;
+      opacity: 0.65;
+      transform-origin: center;
+      transform-box: fill-box;
+      animation: pulse 2.2s infinite ease-out;
+    }
+
+    .winery-pin.active .pulse-ring {
+      stroke: var(--champagne);
+      stroke-width: 2.2;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.85); opacity: 0.9; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    .winery-pin circle.core {
+      fill: var(--burgundy);
+      stroke: var(--sand-gold);
+      stroke-width: 2.2;
+      transition: all 0.2s ease;
+    }
+
+    .winery-pin.active circle.core,
+    .winery-pin:hover circle.core {
+      fill: var(--sand-gold);
+      stroke: var(--deep-wine);
+      r: 7;
+    }
+
+    .winery-pin text.valley-label {
+      fill: var(--champagne);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      paint-order: stroke;
+      stroke: var(--deep-wine);
+      stroke-width: 3.5px;
+      stroke-linejoin: round;
+    }
+
+    .winery-pin.active text.valley-label {
+      fill: var(--sand-gold);
+      font-weight: 700;
+    }
+
+    .map-right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .zone-capsules-box.full-height {
+      flex: 1;
+      background: linear-gradient(160deg, rgba(117, 22, 45, 0.36), rgba(86, 11, 24, 0.84));
+      border: 1px solid var(--gold-border);
+      border-radius: 18px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+    }
+
+    .zone-capsules-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      font-weight: 700;
+    }
+
+    .zone-capsule-list.full-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .zone-capsule-chip {
+      background: rgba(59, 1, 11, 0.72);
+      border: 1px solid rgba(242, 217, 160, 0.28);
+      border-radius: 14px;
+      padding: 12px 16px;
+      color: var(--champagne);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .zone-capsule-chip:hover {
+      border-color: var(--sand-gold);
+      background: rgba(117, 22, 45, 0.68);
+      transform: translateY(-2px);
+    }
+
+    .zone-chip-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .zone-chip-reg {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+    }
+
+    .zone-chip-count {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(242, 229, 198, 0.78);
+    }
+
+    .zone-chip-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.08;
+    }
+
+    .zone-chip-action {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--sand-gold);
+      margin-top: 2px;
+    }
+
+    .winery-detail-modal {
+      flex: 1;
+      background: linear-gradient(160deg, rgba(117, 22, 45, 0.48), rgba(59, 1, 11, 0.9));
+      border: 1px solid var(--gold-border);
+      border-radius: 18px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .winery-modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .winery-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+
+    .winery-tab-btn {
+      background: rgba(59, 1, 11, 0.72);
+      color: var(--champagne);
+      border: 1px solid rgba(242, 217, 160, 0.28);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .winery-tab-btn:hover,
+    .winery-tab-btn.active {
+      background: var(--sand-gold);
+      color: var(--deep-wine);
+      border-color: var(--sand-gold);
+    }
+
+    .winery-detail-modal h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(26px, 2.7vw, 34px);
+      line-height: 1.08;
+      color: var(--champagne);
+      margin-top: 4px;
+    }
+
+    .winery-detail-modal .lead {
+      font-size: 13.5px;
+      line-height: 1.46;
+      color: rgba(242, 229, 198, 0.94);
+    }
+
+    .winery-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 7px;
+    }
+
+    .winery-fact-card {
+      background: rgba(59, 1, 11, 0.62);
+      border: 1px solid rgba(242, 217, 160, 0.22);
+      border-radius: 12px;
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .winery-fact-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+    }
+
+    .winery-fact-value {
+      font-size: 12px;
+      line-height: 1.34;
+      color: rgba(242, 229, 198, 0.92);
+    }
+
+    .winery-highlight-box {
+      background: rgba(59, 1, 11, 0.72);
+      border-left: 3px solid var(--sand-gold);
+      border-radius: 0 10px 10px 0;
+      padding: 9px 13px;
+      font-size: 12.5px;
+      line-height: 1.42;
+      color: var(--sand-gold);
+    }
+
+    .winery-highlight-box strong {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 2px;
+    }
+
+    /* Pie de página encuadrado */
+    .site-footer {
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--gold-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-course {
+      font-size: 11.5px;
+      line-height: 1.2;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      font-weight: 700;
+    }
+
+    .footer-author {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 14.5px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+    }
+
+    #hand-cursor {
+      position: fixed;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--sand-gold);
+      background: rgba(117, 22, 45, 0.45);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 50;
+      display: none;
+    }
+
+    video#cam { display: none; }
+
+    @media (max-width: 980px) {
+      .persistent-camera-strip { grid-template-columns: 1fr; }
+      .camera-combined-box { flex-direction: column; align-items: flex-end; }
+      .camera-monitor { width: 100%; max-width: 180px; }
+      .stage, .map-stage { grid-template-columns: 1fr; }
+      .winery-facts-grid { grid-template-columns: 1fr; }
+      .zone-capsule-list.full-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .time-arrow-ribbon { grid-template-columns: repeat(2, 1fr); border-radius: 18px; gap: 8px; padding-right: 10px; }
+      .time-arrow-ribbon::before, .time-arrow-ribbon::after { display: none; }
+      .timeline-track { grid-template-columns: repeat(2, 1fr); }
+      .timeline-fs-sub { text-align: left; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .camera-permission-box { flex-direction: column; align-items: flex-start; }
+      .site-footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div id="hand-cursor"></div>
+  <video id="cam" playsinline></video>
+
+  <!-- Ventana inicial antes de la línea temporal -->
+  <section class="intro-screen" id="intro-screen" aria-label="Portada de la experiencia">
+    <div class="intro-card">
+      <div class="intro-eyebrow">Chile Re-Descubre · Patrimonio Vitivinícola</div>
+      <h1 class="intro-title">El Redescubrimiento del <span class="carmenere-word">Carménère</span></h1>
+      <p class="intro-subtitle">
+        Un rastro guardado entre hileras y siglos.<br>
+        Abre cada etapa y descubre por ti mismo qué estuvo oculto a simple vista.
+      </p>
+      <button class="start-btn" id="btn-start">Iniciar experiencia →</button>
+      <div class="intro-author">Por Isidora Espinoza Lillo</div>
+    </div>
+
+    <aside class="camera-permission-box" aria-label="Permisos de cámara">
+      <div class="cam-copy">
+        <strong>Permisos de cámara</strong>
+        <p>Se requiere acceso a la cámara para la interacción en tiempo real.<br>Autoriza la cámara para continuar.</p>
+        <span class="cam-status-text" id="intro-cam-status">Estado: Permiso de cámara pendiente</span>
+      </div>
+      <button class="pill-btn" id="btn-cam-intro">Solicitar permiso de cámara</button>
+    </aside>
+  </section>
+
+  <!-- Experiencia principal -->
+  <div class="app-shell" id="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Chile Re-Descubre · Patrimonio Vitivinícola</div>
+        <h1>El Redescubrimiento del <span class="carmenere-word">Carménère</span></h1>
+      </div>
+      <div class="header-actions">
+        <button class="pill-btn" id="btn-back-intro">← Portada</button>
+        <button class="pill-btn" id="btn-cam-shell">Cámara pendiente</button>
+        <button class="pill-btn" id="btn-toggle-mouse">Activar mouse</button>
+      </div>
+    </header>
+
+    <!-- Franja de Cámara y Gestos -->
+    <section class="persistent-camera-strip" aria-label="Cámara y detección de gestos en tiempo real">
+      <div class="camera-telemetry-badge" aria-label="Estado de etapa y gesto">
+        <span class="camera-telemetry-label">Etapa activa</span>
+        <div class="camera-telemetry-value" id="telemetry-hito">Hito I · ~1850</div>
+        <span class="camera-telemetry-sub" id="telemetry-gesture-mode">Gesto: en espera</span>
+      </div>
+
+      <div class="camera-combined-box">
+        <div class="camera-strip-info">
+          <span class="sidebar-kicker">Cámara y Gestos · Siempre Activo</span>
+          <div class="gesture-state-value" id="gesture-state">Sin cámara activa</div>
+          <p class="gesture-detail-text" id="gesture-detail">Autoriza el acceso a la cámara para rastrear índice, pellizco estable y deslizamiento de palma.</p>
+          <div class="gesture-legend">
+            <span><strong>Índice:</strong> puntero</span>
+            <span><strong>Pellizco estable:</strong> seleccionar</span>
+            <span><strong>Deslizar palma:</strong> cambiar hito</span>
+          </div>
+        </div>
+
+        <div class="camera-monitor">
+          <canvas id="gesture-canvas" width="480" height="360"></canvas>
+          <div class="camera-placeholder" id="camera-placeholder">
+            <p>Activa la cámara para ver tu mano.</p>
+            <button class="pill-btn" id="btn-cam-strip">Activar cámara</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISTA 1: Línea Temporal a Pantalla Completa -->
+    <section class="timeline-fullscreen" id="timeline-fullscreen" aria-label="Línea temporal principal">
+      <div class="timeline-fs-header">
+        <div>
+          <div class="timeline-fs-kicker">Línea Temporal · Cronología del Hito</div>
+          <h2 class="timeline-fs-title">Selecciona un hito para abrir su ventana</h2>
+        </div>
+        <p class="timeline-fs-sub">Pincha cualquiera de las cuatro etapas, haz pellizco sobre ella o desliza la palma para cambiar de hito.</p>
+      </div>
+
+      <!-- Flecha de tiempo frontal con hitos de año puntuales -->
+      <div class="time-arrow-ribbon" id="time-arrow-ribbon" aria-label="Flecha cronológica con años">
+        <button type="button" class="arrow-year-chip active" data-index="0">1851</button>
+        <button type="button" class="arrow-year-chip" data-index="1">1990</button>
+        <button type="button" class="arrow-year-chip" data-index="2">1994</button>
+        <button type="button" class="arrow-year-chip" data-index="3">2026</button>
+      </div>
+
+      <div class="timeline-track" id="timeline-track">
+        <button class="hito-node active" data-index="0">
+          <span class="node-dot">I</span>
+          <span class="node-year">~1850</span>
+          <span class="node-label">Origen y Llegada</span>
+          <span class="node-desc">Estacas desde Burdeos y resguardo en suelo chileno.</span>
+          <span class="node-cta">Abrir cápsulas →</span>
+        </button>
+        <button class="hito-node" data-index="1">
+          <span class="node-dot">II</span>
+          <span class="node-year">Siglo XIX–XX</span>
+          <span class="node-label">El Enigma en la Viña</span>
+          <span class="node-desc">Señales en hojas y cosechas que no coincidían.</span>
+          <span class="node-cta">Abrir cápsulas →</span>
+        </button>
+        <button class="hito-node" data-index="2">
+          <span class="node-dot">III</span>
+          <span class="node-year">1994</span>
+          <span class="node-label">El Redescubrimiento</span>
+          <span class="node-desc">La identificación en terreno que devolvió su nombre.</span>
+          <span class="node-cta">Abrir cápsulas →</span>
+        </button>
+        <button class="hito-node" data-index="3">
+          <span class="node-dot">IV</span>
+          <span class="node-year">Actualidad</span>
+          <span class="node-label">Viñas en Chile</span>
+          <span class="node-desc">Recorrido por los valles donde hoy habita la cepa.</span>
+          <span class="node-cta">Abrir cápsulas →</span>
+        </button>
+      </div>
+
+      <div class="timeline-fs-footer">
+        <span>Interacción con mouse, pantalla táctil o gestos de mano</span>
+      </div>
+    </section>
+
+    <!-- VISTA 2: Ventana de Cápsulas e Información del Hito Seleccionado -->
+    <section class="hito-window" id="hito-window" aria-label="Ventana de cápsulas del hito">
+      <div class="window-toolbar">
+        <button class="pill-btn" id="btn-back-timeline">← Línea temporal</button>
+        <div class="window-quick-hitos" id="window-quick-hitos">
+          <button class="quick-hito-btn" data-quick="0">I · ~1850</button>
+          <button class="quick-hito-btn" data-quick="1">II · XIX–XX</button>
+          <button class="quick-hito-btn" data-quick="2">III · 1994</button>
+          <button class="quick-hito-btn" data-quick="3">IV · Viñas</button>
+        </div>
+      </div>
+
+      <main id="stage-container"></main>
+    </section>
+
+    <footer class="site-footer" aria-label="Información del encargo">
+      <div class="footer-course">Diseño de Interfaces · Encargo Final</div>
+      <div class="footer-author">Por Isidora Espinoza Lillo</div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+  <script>
+    const HITOS = [
+      {
+        num: "Hito I · ~1850",
+        shortLabel: "Hito I · ~1850",
+        title: "Un viaje antes del quiebre",
+        lead: "Algo cruzó el océano cuando el mundo aún no sospechaba lo que ocurriría después. Toca cada cápsula para seguir su rastro.",
+        note: "Estacas desde Burdeos, ruta marítima y resguardo natural en suelo chileno.",
+        threeBadge: "Travesía y Estacas",
+        threeModes: [
+          { id: "travesia", label: "Travesía", caption: "Ruta y resguardo de las estacas traídas desde Burdeos hacia el Valle Central." },
+          { id: "estacas", label: "Estacas", caption: "Brotes y estacas en arco: la cepa en pie franco, libre de filoxera en Chile." },
+          { id: "pulso", label: "Pulso", caption: "Pulso de memoria: gira o acerca la vista para inspeccionar el conjunto." }
+        ],
+        capsules: [
+          {
+            tag: "Cápsula 01 · Rastro",
+            title: "¿De dónde venía?",
+            body: "El Carménère formaba parte de las variedades tintas tradicionales del Médoc y Graves en Burdeos, valorada por su color profundo y carácter expresivo.",
+            meta: "Procedencia: Región de Burdeos, Francia"
+          },
+          {
+            tag: "Cápsula 02 · Cruce",
+            title: "Lo que se mezcló en el camino",
+            body: "Hacia mediados del siglo XIX, viticultores chilenos importaron estacas desde Francia para modernizar sus plantaciones, mezclando involuntariamente Carménère junto a Merlot.",
+            meta: "Contexto: Expansión vitivinícola del Valle Central"
+          },
+          {
+            tag: "Cápsula 03 · Umbral",
+            title: "Por qué no desapareció aquí",
+            body: "Mientras la filoxera arrasaba Europa a fines del siglo XIX y obligaba a reinjertar los viñedos, Chile permaneció libre de la plaga, preservando la cepa en pie franco.",
+            meta: "Factor clave: Aislamiento geográfico de Chile"
+          }
+        ]
+      },
+      {
+        num: "Hito II · Siglo XIX – 1993",
+        shortLabel: "Hito II · XIX–XX",
+        title: "Señales que no encajaban",
+        lead: "Durante generaciones se llamó igual a lo que no se comportaba igual. Explora las cápsulas para ver qué delataba la diferencia.",
+        note: "Hojas en tonos carmesí y cobrizo: señales en la parra que anticipaban otra cepa.",
+        threeBadge: "Hojas y Señales",
+        threeModes: [
+          { id: "otono", label: "Otoño carmín", caption: "El follaje otoñal del Carménère vira hacia tonos carmesí y cobrizos, a diferencia del Merlot." },
+          { id: "ciclo", label: "Ciclo largo", caption: "Maduración tardía en el cuartel: el racimo exige más tiempo antes de la cosecha." },
+          { id: "ampelo", label: "Ampelografía", caption: "Observación directa de brotes, forma de hoja y racimos en terreno." }
+        ],
+        capsules: [
+          {
+            tag: "Cápsula 01 · Color",
+            title: "El giro de la hoja en otoño",
+            body: "A diferencia del Merlot cuyas hojas amarillean antes de caer, el Carménère tiñe su follaje de tonos carmesí y cobrizos en otoño, rasgo que da origen a su nombre (de carmín).",
+            meta: "Señal en terreno: Pigmentación otoñal de la hoja"
+          },
+          {
+            tag: "Cápsula 02 · Tiempo",
+            title: "Un reloj distinto en la parra",
+            body: "Los viticultores notaban cuarteles de «Merlot» que tardaban semanas más en alcanzar madurez fenólica, exponiéndose a las primeras lluvias de otoño si se cosechaban antes de tiempo.",
+            meta: "Comportamiento: Cosecha tardía respecto al Merlot"
+          },
+          {
+            tag: "Cápsula 03 · Detalle",
+            title: "Lo que revela la observación",
+            body: "El examen detallado de los brotes jóvenes con tintes rojizos, la forma del seno peciolar de la hoja y los racimos más sueltos anticipaban que se trataba de otra identidad varietal.",
+            meta: "Disciplina: Observación ampelográfica"
+          }
+        ]
+      },
+      {
+        num: "Hito III · 24 de noviembre de 1994",
+        shortLabel: "Hito III · 1994",
+        title: "El instante en que cambió el nombre",
+        lead: "Un encuentro en terreno volvió a poner nombre propio a una historia suspendida. Abre cada cápsula para reconstruir el giro.",
+        note: "El núcleo del redescubrimiento: cuando la mirada en terreno devolvió su nombre real.",
+        threeBadge: "Núcleo e Identidad",
+        threeModes: [
+          { id: "hallazgo", label: "Hallazgo", caption: "24 de noviembre de 1994: reconocimiento ampelográfico que devolvió el nombre de Carménère." },
+          { id: "adn", label: "Certeza", caption: "Los anillos concéntricos simbolizan la convergencia entre observación en terreno y prueba genética." },
+          { id: "legado", label: "Legado", caption: "Chile como santuario y referente mundial de la variedad." }
+        ],
+        capsules: [
+          {
+            tag: "Cápsula 01 · Mirada",
+            title: "El día en que se reconoció la cepa",
+            body: "En noviembre de 1994, al observar los brotes y hojas en terreno, el ampelógrafo Jean-Michel Boursiquot reconoció de inmediato los rasgos morfológicos propios del Carménère de Burdeos.",
+            meta: "Fecha histórica: 24 de noviembre de 1994"
+          },
+          {
+            tag: "Cápsula 02 · Certeza",
+            title: "La prueba que cerró el enigma",
+            body: "Análisis posteriores de ADN ratificaron la identificación ampelográfica, permitiendo diferenciar oficialmente los cuarteles de Carménère y Merlot en Chile.",
+            meta: "Impacto: Registro varietal propio en la viticultura chilena"
+          },
+          {
+            tag: "Cápsula 03 · Giro",
+            title: "Cómo cambió el mapa del relato",
+            body: "El redescubrimiento transformó la narrativa del vino chileno: Chile pasó a custodiar la mayor superficie cultivada de Carménère en el mundo.",
+            meta: "Legado: Símbolo patrimonial del vino de Chile"
+          }
+        ]
+      }
+    ];
+
+    const ZONES = [
+      {
+        id: "aconcagua",
+        regionNum: "V",
+        zoneName: "Aconcagua",
+        valley: "Valle de Aconcagua",
+        coords: "32°46' S",
+        x: 104,
+        y: 116,
+        wineries: [
+          {
+            name: "Viña Errázuriz · Panquehue",
+            summary: "Ubicada en Panquehue, esta viña trabaja el Carménère combinando días luminosos de alta radiación con brisas frescas que moderan la temperatura del racimo y evitan el exceso de madurez verde o sobremaduración.",
+            soil: "Aluvial con gravas y laderas pedregosas",
+            style: "Ciruela negra, pimienta blanca y tanino pulido",
+            legacy: "Impulso en parcelas de ladera y alta gama en Aconcagua",
+            climate: "Mediterráneo luminoso con brisa vespertina",
+            viticulture: "Deshoje medido y cosecha parcelaria según madurez de pepa",
+            tastingNote: "En boca muestra una línea definida, fruta negra nítida y especia seca sin pesadez dulce.",
+            relevantFact: "Lo relevante: Demostró que el Carménère en Aconcagua puede lograr madurez fenólica completa sin perder frescura ni tensión, alejándose de los perfiles excesivamente herbales de cosechas tempranas."
+          },
+          {
+            name: "Viña Von Siebenthal · Panquehue",
+            summary: "Proyecto vitivinícola en el interior de Aconcagua donde las amplitudes térmicas entre el día cálido y la noche fresca favorecen una maduración lenta y precisa del Carménère.",
+            soil: "Franco-arcilloso con cantos rodados y piedras",
+            style: "Especiado, notas de arándano y textura firme",
+            legacy: "Enfoque de precisión en cuarteles de Panquehue",
+            climate: "Seco y soleado con noches frescas en el valle interior",
+            viticulture: "Control de vigor y selección estricta de racimos sanos",
+            tastingNote: "Destaca por su perfil especiado, trazo vertical y textura marcada por el suelo pedregoso.",
+            relevantFact: "Lo relevante: Su trabajo en el valle interior destaca cómo el contraste térmico y los suelos pedregosos realzan la vertiente especiada y estructurada de la cepa."
+          }
+        ]
+      },
+      {
+        id: "maipo",
+        regionNum: "RM",
+        zoneName: "Maipo",
+        valley: "Valle del Maipo",
+        coords: "33°43' S",
+        x: 104,
+        y: 142,
+        wineries: [
+          {
+            name: "Viña Carmen · Alto Jahuel",
+            summary: "En los cuarteles de Alto Jahuel se produjo el reconocimiento clave en terreno de 1994 que permitió distinguir al Carménère dentro de plantaciones históricas atribuidas al Merlot en el Maipo.",
+            soil: "Suelos aluviales profundos del río Maipo",
+            style: "Fruta roja y negra madura, toque de cacao y especias suaves",
+            legacy: "Protagonista directo del redescubrimiento moderno de la cepa",
+            climate: "Mediterráneo de valle con influencia térmica andina",
+            viticulture: "Seguimiento fenológico tardío para evitar notas pirazínicas crudas",
+            tastingNote: "Combina ciruela y mora madura con un matiz herbal fino y textura amable.",
+            relevantFact: "Lo relevante: Tras el hallazgo ampelográfico de noviembre de 1994, marcó un antes y un después al elaborar el primer Carménère chileno embotellado bajo su identidad varietal real."
+          },
+          {
+            name: "Viña Santa Rita · Alto Jahuel",
+            summary: "Con una larga historia en el Alto Maipo, cultiva viñedos en sectores aluviales tradicionales donde la influencia cordillerana aporta equilibrio térmico para variedades tintas de ciclo largo.",
+            soil: "Franco-arenoso y aluvial con presencia de ripio",
+            style: "Mora, hierba fresca de campo y acidez equilibrada",
+            legacy: "Continuidad histórica en el corazón del Valle del Maipo",
+            climate: "Templado mediterráneo con brisas frescas desde la cordillera",
+            viticulture: "Conducción equilibrada de canopia y vendimia escalonada",
+            tastingNote: "Presenta fruta negra jugosa, toque de hoja de laurel y tanino de grano fino.",
+            relevantFact: "Lo relevante: Sus parras en Alto Jahuel permiten observar la transición histórica de las viñas tradicionales del Maipo hacia la separación y estudio de parcelas puras de Carménère."
+          }
+        ]
+      },
+      {
+        id: "cachapoal",
+        regionNum: "VI",
+        zoneName: "Cachapoal",
+        valley: "Valle del Cachapoal",
+        coords: "34°23' S",
+        x: 103,
+        y: 168,
+        wineries: [
+          {
+            name: "Viña Concha y Toro · Peumo",
+            summary: "En la terraza fluvial de Peumo, el Carménère encuentra condiciones particulares de resguardo y suelos arcillosos que sostienen su ciclo largo hasta bien avanzado el otoño.",
+            soil: "Arcillosos profundos en terraza fluvial de Peumo",
+            style: "Ciruela madura, notas florales y tanino redondo y envolvente",
+            legacy: "Referente icónico del estilo de Peumo para el Carménère",
+            climate: "Cálido en el día con brisas frescas en terraza de río",
+            viticulture: "Manejo de canopia para favorecer insolación pareja del racimo",
+            tastingNote: "Sobresale por su boca envolvente, fruta madura jugosa y sensación aterciopelada.",
+            relevantFact: "Lo relevante: Peumo se consolidó como uno de los orígenes más reconocibles del Carménère chileno gracias a la suavidad y redondez que aportan sus suelos arcillosos en la ribera del río."
+          },
+          {
+            name: "Viña Vik · Millahue",
+            summary: "Emplazada en el valle interior de Millahue, rodeada por cordones montañosos que generan un microclima singular, aborda el Carménère desde el estudio detallado de cada subparcela.",
+            soil: "Granítico descompuesto (maicillo) y ladera",
+            style: "Profundo, floral, especiado y con tensión mineral",
+            legacy: "Lectura contemporánea del terroir de Millahue",
+            climate: "Microclima resguardado entre cerros con variación térmica marcada",
+            viticulture: "Cosecha microparcelaria según exposición solar y textura del suelo",
+            tastingNote: "Aporta carácter floral oscuro, especias finas y un cierre largo y preciso.",
+            relevantFact: "Lo relevante: El microclima de Millahue —históricamente asociado a un «lugar de oro»— ofrece un entorno protegido donde el Carménère expresa matices de flor violeta, especias y estructura precisa."
+          }
+        ]
+      },
+      {
+        id: "colchagua",
+        regionNum: "VI",
+        zoneName: "Colchagua",
+        valley: "Valle de Colchagua",
+        coords: "34°36' S",
+        x: 102,
+        y: 194,
+        wineries: [
+          {
+            name: "Montes · Apalta",
+            summary: "En el anfiteatro de Apalta, los viñedos en laderas y terrazas reciben sol generoso y brisas que ayudan a completar la maduración de la cepa sin perder definición varietal.",
+            soil: "Granítico descompuesto con arcilla en laderas",
+            style: "Concentrado, notas de mora, pimiento rojo asado y especias",
+            legacy: "Impulso pionero en la puesta en valor de Apalta",
+            climate: "Mediterráneo cálido con aire fresco canalizado por el valle",
+            viticulture: "Riego medido en ladera y cosecha en el punto óptimo de madurez",
+            tastingNote: "Muestra densidad frutal, especia cálida y taninos maduros con buen volumen.",
+            relevantFact: "Lo relevante: Apalta demostró el potencial del Carménère en laderas graníticas, logrando vinos de mayor concentración y profundidad que los tradicionales de planicie."
+          },
+          {
+            name: "Clos Apalta · Apalta",
+            summary: "Desarrollada sobre un anfiteatro natural con orientación sur en Apalta, reúne parras antiguas y manejo minucioso de canopia y cosecha para acompañar el ritmo tardío del Carménère.",
+            soil: "Granítico con coluvios y arcilla en ladera",
+            style: "Complejo, balsámico, especiado y de gran persistencia",
+            legacy: "Hito de viticultura de precisión y guarda en Colchagua",
+            climate: "Anfiteatro natural protegido con maduración pausada",
+            viticulture: "Trabajo por sectores y selección manual de uvas en su punto justo",
+            tastingNote: "Combina profundidad aromática, matiz balsámico y estructura firme para guarda.",
+            relevantFact: "Lo relevante: La combinación de parras de larga data, ladera granítica y cosecha escalonada evidencia por qué el Carménère requiere paciencia y lectura fina del viñedo para alcanzar su máxima expresión."
+          }
+        ]
+      },
+      {
+        id: "curico",
+        regionNum: "VII",
+        zoneName: "Curicó",
+        valley: "Valle de Curicó",
+        coords: "34°59' S",
+        x: 101,
+        y: 218,
+        wineries: [
+          {
+            name: "Viña Miguel Torres · Curicó",
+            summary: "Con presencia histórica en Curicó, ha desarrollado estudios ampelográficos y de viticultura que aportaron claridad sobre las diferencias entre variedades tintas plantadas históricamente en la zona central.",
+            soil: "Aluvial franco-arcilloso y sectores de precordillera",
+            style: "Fruta oscura, notas herbales finas y boca jugosa",
+            legacy: "Aporte temprano al estudio y difusión del Carménère en Chile",
+            climate: "Mediterráneo con mayor amplitud térmica hacia la precordillera",
+            viticulture: "Observación varietal y manejo cuidadoso de la canopia en verano",
+            tastingNote: "Equilibra fruta negra madura, toque especiado y frescura en el paso por boca.",
+            relevantFact: "Lo relevante: Su trabajo técnico y de investigación varietal ayudó a documentar las particularidades del Carménère frente al Merlot cuando la cepa aún era poco comprendida en el país."
+          },
+          {
+            name: "Viña San Pedro · Molina",
+            summary: "En el sector de Molina y alrededores de Curicó, los suelos aluviales y la buena luminosidad estival permiten obtener un Carménère accesible, aromático y equilibrado.",
+            soil: "Suelos aluviales y franco-arenosos en Molina",
+            style: "Fruta negra madura, toque especiado y final amable",
+            legacy: "Tradición vitivinícola de gran escala en el valle de Curicó",
+            climate: "Soleado en verano con brisas moderadas desde los Andes",
+            viticulture: "Control de madurez equilibrada para conservar frescura y fruta",
+            tastingNote: "Resulta franco, aromático en ciruela y pimienta, con taninos suaves y redondos.",
+            relevantFact: "Lo relevante: Muestra el lado más amable y expresivo en fruta del Carménère en el Valle Central, manteniendo la identidad especiada de la variedad con taninos suaves."
+          }
+        ]
+      },
+      {
+        id: "maule",
+        regionNum: "VII",
+        zoneName: "Maule",
+        valley: "Valle del Maule",
+        coords: "35°32' S",
+        x: 100,
+        y: 244,
+        wineries: [
+          {
+            name: "Viñas del Maule · Loncomilla",
+            summary: "En el sector de Loncomilla, dentro de uno de los valles más antiguos de Chile, conviven viñedos de larga trayectoria que reflejan la historia rural y el carácter más fresco del Maule.",
+            soil: "Aluvial y granítico en el entorno del río Loncomilla",
+            style: "Fruta madura, notas terrosas y acidez viva",
+            legacy: "Vínculo con la tradición vitícola centenaria del Maule",
+            climate: "Mediterráneo con mayor frescura estacional hacia el sur del valle central",
+            viticulture: "Resguardo de parras de bajo rendimiento y vendimia oportuna",
+            tastingNote: "Ofrece fruta oscura con matiz terroso y acidez viva que da ligereza.",
+            relevantFact: "Lo relevante: En el Maule, la influencia del clima más fresco hacia el sur y los suelos antiguos dan un contrapunto más austero y fresco respecto a los valles más cálidos del norte."
+          },
+          {
+            name: "Viña Gillmore · Loncomilla",
+            summary: "Con parras de larga data en Loncomilla, trabaja bajo una mirada artesanal enfocada en el carácter del lugar, la maduración pausada y la mínima intervención.",
+            soil: "Aluvial con presencia de arcilla y limo en Loncomilla",
+            style: "Especiado, fruta oscura y perfil auténtico de viñedo antiguo",
+            legacy: "Rescate de viñedos de larga data en el Maule interior",
+            climate: "Seco y luminoso con noches frescas en el sector de Loncomilla",
+            viticulture: "Baja intervención y respeto por el ritmo natural de parras viejas",
+            tastingNote: "Destaca por su autenticidad varietal, especia marcada y textura directa.",
+            relevantFact: "Lo relevante: Rescata el valor de las parras antiguas de Loncomilla, donde el tiempo en el viñedo y la identidad del lugar pesan más que las modas enológicas."
+          }
+        ]
+      }
+    ];
+
+    const HAND_CONNECTIONS = [
+      [0, 1], [1, 2], [2, 3], [3, 4],
+      [0, 5], [5, 6], [6, 7], [7, 8],
+      [5, 9], [9, 10], [10, 11], [11, 12],
+      [9, 13], [13, 14], [14, 15], [15, 16],
+      [13, 17], [17, 18], [18, 19], [19, 20],
+      [0, 17]
+    ];
+
+    let currentHito = 0;
+    let isWindowOpen = false;
+    let openCapsuleIdx = 0;
+    let selectedThreeModeIdx = 0;
+    let selectedZoneIdx = 1;
+    let selectedWineryInZoneIdx = 0;
+    let isWineryModalOpen = false;
+    let mouseAssistEnabled = false;
+
+    const telemetryHitoEl = document.getElementById("telemetry-hito");
+    const telemetryGestureModeEl = document.getElementById("telemetry-gesture-mode");
+
+    function updateTelemetryHito() {
+      telemetryHitoEl.textContent = currentHito < 3 ? HITOS[currentHito].shortLabel : "Hito IV · Viñas";
+    }
+
+    // Estado de Three.js interactivo y detallado por hito
+    let threeRenderer = null;
+    let threeScene = null;
+    let threeCamera = null;
+    let threeRoot = null;
+    let threeDynamicParts = [];
+    let threeAnimId = null;
+    let handTiltX = 0;
+    let handTiltY = 0;
+    let dragRotY = 0;
+    let dragRotX = 0.16;
+    let cameraZoom = 4.15;
+    let isDraggingThree = false;
+    let lastPointerX = 0;
+    let lastPointerY = 0;
+
+    function createLeafMesh(colorHex, emissiveHex, scaleFactor) {
+      const shape = new THREE.Shape();
+      shape.moveTo(0, -0.24);
+      shape.quadraticCurveTo(0.18, -0.06, 0.13, 0.14);
+      shape.quadraticCurveTo(0.05, 0.25, 0, 0.3);
+      shape.quadraticCurveTo(-0.05, 0.25, -0.13, 0.14);
+      shape.quadraticCurveTo(-0.18, -0.06, 0, -0.24);
+
+      const geo = new THREE.ExtrudeGeometry(shape, {
+        depth: 0.025,
+        bevelEnabled: true,
+        bevelThickness: 0.012,
+        bevelSize: 0.012,
+        bevelSegments: 2
+      });
+      geo.center();
+
+      const mat = new THREE.MeshStandardMaterial({
+        color: colorHex,
+        emissive: emissiveHex,
+        roughness: 0.32,
+        metalness: 0.24
+      });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.scale.setScalar(scaleFactor);
+      return mesh;
+    }
+
+    function buildHitoGeometry(hitoIdx, capsuleIdx, modeIdx) {
+      if (!threeRoot) return;
+      while (threeRoot.children.length > 0) {
+        const child = threeRoot.children[0];
+        threeRoot.remove(child);
+      }
+      threeDynamicParts = [];
+
+      const goldMat = new THREE.MeshStandardMaterial({
+        color: 0xF2D9A0,
+        roughness: 0.22,
+        metalness: 0.82
+      });
+      const champagneMat = new THREE.MeshStandardMaterial({
+        color: 0xF2E5C6,
+        roughness: 0.3,
+        metalness: 0.35
+      });
+      const deepWineMat = new THREE.MeshStandardMaterial({
+        color: 0x560B18,
+        roughness: 0.28,
+        metalness: 0.32
+      });
+
+      if (hitoIdx === 0) {
+        const gobletPoints = [
+          new THREE.Vector2(0.0, -0.94),
+          new THREE.Vector2(0.56, -0.94),
+          new THREE.Vector2(0.52, -0.84),
+          new THREE.Vector2(0.08, -0.74),
+          new THREE.Vector2(0.06, -0.18),
+          new THREE.Vector2(0.28, 0.04),
+          new THREE.Vector2(0.86, 0.34),
+          new THREE.Vector2(0.92, 0.72),
+          new THREE.Vector2(0.87, 0.73),
+          new THREE.Vector2(0.81, 0.36),
+          new THREE.Vector2(0.22, 0.08),
+          new THREE.Vector2(0.0, 0.02)
+        ];
+        const gobletGeo = new THREE.LatheGeometry(gobletPoints, 40);
+        const gobletMat = new THREE.MeshStandardMaterial({
+          color: 0x8F1D38,
+          roughness: 0.26,
+          metalness: 0.42
+        });
+        const goblet = new THREE.Mesh(gobletGeo, gobletMat);
+        threeRoot.add(goblet);
+
+        const rim = new THREE.Mesh(new THREE.TorusGeometry(0.895, 0.032, 16, 48), goldMat);
+        rim.rotation.x = Math.PI / 2;
+        rim.position.y = 0.72;
+        threeRoot.add(rim);
+
+        const wineSurface = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.76, 0.56, 0.22, 32),
+          new THREE.MeshStandardMaterial({
+            color: 0x3B010B,
+            emissive: 0x560B18,
+            roughness: 0.16,
+            metalness: 0.45
+          })
+        );
+        wineSurface.position.y = 0.44;
+        threeRoot.add(wineSurface);
+
+        const orbitRing = new THREE.Mesh(
+          new THREE.TorusGeometry(1.38, modeIdx === 0 ? 0.028 : 0.016, 14, 64),
+          goldMat
+        );
+        orbitRing.rotation.x = Math.PI / 2.35;
+        threeRoot.add(orbitRing);
+        threeDynamicParts.push({ mesh: orbitRing, type: "ring", speed: 0.4 });
+
+        const cuttingsCount = 6;
+        for (let i = 0; i < cuttingsCount; i++) {
+          const angle = (i / cuttingsCount) * Math.PI * 2;
+          const isHighlighted = i % 3 === capsuleIdx;
+          const stakeGroup = new THREE.Group();
+
+          const stick = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.03, 0.042, isHighlighted ? 0.68 : 0.52, 12),
+            isHighlighted ? goldMat : champagneMat
+          );
+          const leaf = createLeafMesh(
+            isHighlighted ? 0xF2D9A0 : 0xA3223E,
+            isHighlighted ? 0x3B010B : 0x000000,
+            isHighlighted ? 0.68 : 0.5
+          );
+          leaf.position.set(0.09, 0.22, 0.02);
+          leaf.rotation.z = -0.55;
+
+          stakeGroup.add(stick, leaf);
+          stakeGroup.position.set(Math.cos(angle) * 1.38, 0, Math.sin(angle) * 1.38);
+          stakeGroup.rotation.z = -0.18;
+          threeRoot.add(stakeGroup);
+          threeDynamicParts.push({
+            mesh: stakeGroup,
+            type: "bob",
+            phase: i * 0.9,
+            amp: isHighlighted ? 0.11 : 0.045
+          });
+        }
+      } else if (hitoIdx === 1) {
+        const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.15, 1.55, 18), goldMat);
+        trunk.position.y = -0.15;
+        threeRoot.add(trunk);
+
+        for (let b = 0; b < 3; b++) {
+          const bAngle = (b / 3) * Math.PI * 2;
+          const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.032, 0.055, 0.85, 12), goldMat);
+          arm.position.set(Math.cos(bAngle) * 0.36, 0.34, Math.sin(bAngle) * 0.36);
+          arm.rotation.z = -Math.cos(bAngle) * 0.85;
+          arm.rotation.x = Math.sin(bAngle) * 0.85;
+          threeRoot.add(arm);
+
+          const cluster = new THREE.Mesh(
+            new THREE.ConeGeometry(0.11, 0.24, 12),
+            deepWineMat
+          );
+          cluster.rotation.x = Math.PI;
+          cluster.position.set(Math.cos(bAngle) * 0.62, 0.18, Math.sin(bAngle) * 0.62);
+          threeRoot.add(cluster);
+        }
+
+        const leafColors = [0x9E1B32, 0xC85A32, 0xF2D9A0];
+        const leafCount = 9;
+        for (let i = 0; i < leafCount; i++) {
+          const angle = (i / leafCount) * Math.PI * 2;
+          const toneIdx = i % 3;
+          const isActiveTone = toneIdx === capsuleIdx || modeIdx === toneIdx;
+          const leafMesh = createLeafMesh(
+            leafColors[toneIdx],
+            isActiveTone ? 0x4A0815 : 0x000000,
+            isActiveTone ? 1.15 : 0.92
+          );
+          const r = 1.12 + (i % 2) * 0.24;
+          const baseY = 0.22 + ((i % 3) - 1) * 0.24;
+          leafMesh.position.set(Math.cos(angle) * r, baseY, Math.sin(angle) * r);
+          leafMesh.rotation.y = -angle + Math.PI / 2;
+          leafMesh.rotation.x = 0.38;
+          threeRoot.add(leafMesh);
+          threeDynamicParts.push({ mesh: leafMesh, type: "leaf", phase: i * 0.65, baseY });
+        }
+      } else {
+        const core = new THREE.Mesh(
+          new THREE.DodecahedronGeometry(0.52, 0),
+          new THREE.MeshStandardMaterial({
+            color: 0x8F1D38,
+            emissive: 0x3B010B,
+            roughness: 0.22,
+            metalness: 0.55
+          })
+        );
+        threeRoot.add(core);
+        threeDynamicParts.push({ mesh: core, type: "core", speed: 0.85 });
+
+        const innerHalo = new THREE.Mesh(
+          new THREE.TorusGeometry(0.78, 0.018, 12, 48),
+          champagneMat
+        );
+        innerHalo.rotation.x = Math.PI / 2;
+        threeRoot.add(innerHalo);
+        threeDynamicParts.push({ mesh: innerHalo, type: "ring", speed: -0.6 });
+
+        for (let rIdx = 0; rIdx < 2; rIdx++) {
+          const radius = 1.15 + rIdx * 0.28;
+          const ring = new THREE.Mesh(
+            new THREE.TorusGeometry(radius, rIdx === capsuleIdx % 2 ? 0.03 : 0.016, 16, 64),
+            rIdx === 0 ? goldMat : champagneMat
+          );
+          ring.rotation.x = rIdx === 0 ? Math.PI / 3 : -Math.PI / 4;
+          ring.rotation.y = rIdx * 0.7;
+          threeRoot.add(ring);
+          threeDynamicParts.push({ mesh: ring, type: "tiltRing", speed: (rIdx === 0 ? 0.55 : -0.42), phase: rIdx });
+
+          const node = new THREE.Mesh(new THREE.SphereGeometry(0.075, 16, 16), goldMat);
+          node.position.set(Math.cos(rIdx * 2.1) * radius, 0, Math.sin(rIdx * 2.1) * radius);
+          threeRoot.add(node);
+          threeDynamicParts.push({ mesh: node, type: "orbitNode", radius, speed: rIdx === 0 ? 1.1 : -0.85, phase: rIdx * 1.8 });
+        }
+      }
+    }
+
+    function initThreeScene(hostEl) {
+      if (!hostEl || typeof THREE === "undefined") return;
+      if (threeAnimId) cancelAnimationFrame(threeAnimId);
+      if (threeRenderer) {
+        threeRenderer.dispose();
+      }
+      const existingCanvas = hostEl.querySelector("canvas");
+      if (existingCanvas) existingCanvas.remove();
+
+      const width = hostEl.clientWidth || 420;
+      const height = Math.max(hostEl.clientHeight || 175, 160);
+
+      threeScene = new THREE.Scene();
+      threeCamera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
+      threeCamera.position.set(0, 0.18, cameraZoom);
+
+      threeRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      threeRenderer.setSize(width, height);
+      threeRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      threeRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+      threeRenderer.toneMappingExposure = 1.12;
+      hostEl.insertBefore(threeRenderer.domElement, hostEl.firstChild);
+
+      const ambient = new THREE.AmbientLight(0xF2E5C6, 1.05);
+      threeScene.add(ambient);
+
+      const keyLight = new THREE.DirectionalLight(0xF2D9A0, 1.85);
+      keyLight.position.set(3, 4, 4);
+      threeScene.add(keyLight);
+
+      const rimLight = new THREE.PointLight(0xC85A32, 2.4, 14);
+      rimLight.position.set(-2.8, -1.2, 2.8);
+      threeScene.add(rimLight);
+
+      threeRoot = new THREE.Group();
+      threeScene.add(threeRoot);
+      buildHitoGeometry(currentHito, openCapsuleIdx, selectedThreeModeIdx);
+
+      hostEl.onpointerdown = (e) => {
+        isDraggingThree = true;
+        lastPointerX = e.clientX;
+        lastPointerY = e.clientY;
+        hostEl.setPointerCapture(e.pointerId);
+      };
+      hostEl.onpointermove = (e) => {
+        if (!isDraggingThree) return;
+        const dx = e.clientX - lastPointerX;
+        const dy = e.clientY - lastPointerY;
+        lastPointerX = e.clientX;
+        lastPointerY = e.clientY;
+        dragRotY += dx * 0.012;
+        dragRotX = Math.max(-0.9, Math.min(0.9, dragRotX + dy * 0.01));
+      };
+      hostEl.onpointerup = (e) => {
+        isDraggingThree = false;
+        if (hostEl.hasPointerCapture(e.pointerId)) {
+          hostEl.releasePointerCapture(e.pointerId);
+        }
+      };
+      hostEl.onwheel = (e) => {
+        e.preventDefault();
+        cameraZoom = Math.max(2.9, Math.min(5.6, cameraZoom + e.deltaY * 0.002));
+        threeCamera.position.z = cameraZoom;
+      };
+
+      const clock = new THREE.Clock();
+      function animateThree() {
+        threeAnimId = requestAnimationFrame(animateThree);
+        const t = clock.getElapsedTime();
+
+        if (threeRoot) {
+          const autoSpin = isDraggingThree ? 0 : t * 0.34;
+          threeRoot.rotation.y = autoSpin + dragRotY + handTiltX * 0.65;
+          threeRoot.rotation.x = dragRotX + Math.sin(t * 0.75) * 0.04 + handTiltY * 0.4;
+        }
+
+        threeDynamicParts.forEach((part) => {
+          if (part.type === "ring") {
+            part.mesh.rotation.z += part.speed * 0.012;
+          } else if (part.type === "bob") {
+            part.mesh.position.y = Math.sin(t * 2.2 + part.phase) * part.amp;
+          } else if (part.type === "leaf") {
+            part.mesh.position.y = part.baseY + Math.sin(t * 1.9 + part.phase) * 0.07;
+          } else if (part.type === "core") {
+            part.mesh.rotation.y = -t * part.speed;
+            part.mesh.rotation.x = t * 0.35;
+            const pulseScale = 1 + Math.sin(t * 2.8) * 0.06;
+            part.mesh.scale.setScalar(pulseScale);
+          } else if (part.type === "tiltRing") {
+            part.mesh.rotation.z = t * part.speed + part.phase;
+          } else if (part.type === "orbitNode") {
+            const a = t * part.speed + part.phase;
+            part.mesh.position.set(Math.cos(a) * part.radius, Math.sin(a * 0.7) * 0.32, Math.sin(a) * part.radius);
+          }
+        });
+
+        threeRenderer.render(threeScene, threeCamera);
+      }
+      animateThree();
+    }
+
+    const introScreen = document.getElementById("intro-screen");
+    const appShell = document.getElementById("app-shell");
+    const timelineFullscreen = document.getElementById("timeline-fullscreen");
+    const hitoWindow = document.getElementById("hito-window");
+    const btnStart = document.getElementById("btn-start");
+    const btnBackIntro = document.getElementById("btn-back-intro");
+    const btnBackTimeline = document.getElementById("btn-back-timeline");
+    const btnToggleMouse = document.getElementById("btn-toggle-mouse");
+    const stageContainer = document.getElementById("stage-container");
+    const hitoNodes = document.querySelectorAll(".hito-node");
+    const arrowYearChips = document.querySelectorAll(".arrow-year-chip");
+    const quickHitoBtns = document.querySelectorAll(".quick-hito-btn");
+
+    function updateTimelineProgress() {
+      hitoNodes.forEach((node, idx) => node.classList.toggle("active", idx === currentHito));
+      arrowYearChips.forEach((chip, idx) => chip.classList.toggle("active", idx === currentHito));
+      quickHitoBtns.forEach((btn, idx) => btn.classList.toggle("active", idx === currentHito));
+      updateTelemetryHito();
+    }
+
+    function syncViews() {
+      timelineFullscreen.classList.toggle("hidden", isWindowOpen);
+      hitoWindow.classList.toggle("active", isWindowOpen);
+      updateTimelineProgress();
+      if (isWindowOpen) {
+        renderStage();
+      } else if (threeAnimId) {
+        cancelAnimationFrame(threeAnimId);
+        threeAnimId = null;
+      }
+    }
+
+    function enterExperience() {
+      introScreen.style.display = "none";
+      appShell.classList.add("visible");
+      isWindowOpen = false;
+      syncViews();
+    }
+
+    btnStart.addEventListener("click", async () => {
+      if (!camActive) {
+        await requestCameraPermission();
+      }
+      enterExperience();
+    });
+
+    btnBackIntro.addEventListener("click", () => {
+      appShell.classList.remove("visible");
+      introScreen.style.display = "flex";
+    });
+
+    btnBackTimeline.addEventListener("click", () => {
+      isWindowOpen = false;
+      syncViews();
+    });
+
+    btnToggleMouse.addEventListener("click", () => {
+      mouseAssistEnabled = !mouseAssistEnabled;
+      btnToggleMouse.classList.toggle("active", mouseAssistEnabled);
+      btnToggleMouse.textContent = mouseAssistEnabled ? "Mouse activo" : "Activar mouse";
+      if (!mouseAssistEnabled && !camActive) {
+        handCursor.style.display = "none";
+      }
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!mouseAssistEnabled) return;
+      handCursor.style.display = "block";
+      handCursor.style.left = `${e.clientX}px`;
+      handCursor.style.top = `${e.clientY}px`;
+    });
+
+    function shiftHito(delta) {
+      currentHito = Math.max(0, Math.min(3, currentHito + delta));
+      openCapsuleIdx = 0;
+      selectedThreeModeIdx = 0;
+      updateTimelineProgress();
+      if (isWindowOpen) {
+        renderStage();
+      }
+    }
+
+    function openHitoWindow(idx) {
+      currentHito = Math.max(0, Math.min(3, idx));
+      openCapsuleIdx = 0;
+      selectedThreeModeIdx = 0;
+      if (currentHito === 3) isWineryModalOpen = false;
+      isWindowOpen = true;
+      syncViews();
+    }
+
+    function renderStage() {
+      updateTimelineProgress();
+
+      if (currentHito < 3) {
+        const h = HITOS[currentHito];
+        const activeMode = h.threeModes[selectedThreeModeIdx] || h.threeModes[0];
+
+        stageContainer.innerHTML = `
+          <section class="stage">
+            <article class="narrative-panel">
+              <div class="narrative-top">
+                <span class="hito-badge">${h.num}</span>
+                <h2>${h.title}</h2>
+                <p class="lead">${h.lead}</p>
+                <div class="three-box">
+                  <div class="three-box-top">
+                    <span>${h.threeBadge}</span>
+                    <div class="three-controls-bar" role="group" aria-label="Modos de la escena">
+                      ${h.threeModes.map((m, mIdx) => `
+                        <button type="button" class="three-mode-btn ${mIdx === selectedThreeModeIdx ? "active" : ""}" data-three-mode="${mIdx}">
+                          ${m.label}
+                        </button>
+                      `).join("")}
+                      <button type="button" class="three-mode-btn" id="btn-reset-three" title="Reiniciar vista">Reset</button>
+                    </div>
+                  </div>
+                  <div class="three-canvas-host" id="three-hito-host">
+                    <span class="three-hint-pill">Arrastra para girar · Rueda para zoom</span>
+                  </div>
+                  <p class="three-caption" id="three-dynamic-caption">${activeMode.caption}</p>
+                </div>
+              </div>
+              <div class="stage-footer-status">
+                <span class="step-counter">Hito ${currentHito + 1} de 4</span>
+              </div>
+            </article>
+
+            <aside class="capsules-panel">
+              <div class="capsules-header">
+                <span>Cápsulas · Toca para revelar</span>
+              </div>
+              <div class="capsule-grid">
+                ${h.capsules.map((cap, idx) => `
+                  <div class="capsule ${idx === openCapsuleIdx ? "open" : ""}" data-cap="${idx}">
+                    <div class="capsule-top">
+                      <div>
+                        <div class="capsule-tag">${cap.tag}</div>
+                        <div class="capsule-title">${cap.title}</div>
+                      </div>
+                      <div class="capsule-toggle">${idx === openCapsuleIdx ? "−" : "+"}</div>
+                    </div>
+                    <div class="capsule-body">
+                      <p>${cap.body}</p>
+                      <span class="capsule-meta">${cap.meta}</span>
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+            </aside>
+          </section>
+        `;
+
+        requestAnimationFrame(() => {
+          initThreeScene(document.getElementById("three-hito-host"));
+        });
+
+        stageContainer.querySelectorAll("[data-three-mode]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            selectedThreeModeIdx = Number(btn.dataset.threeMode);
+            renderStage();
+          });
+        });
+
+        const resetThreeBtn = document.getElementById("btn-reset-three");
+        if (resetThreeBtn) {
+          resetThreeBtn.addEventListener("click", () => {
+            dragRotY = 0;
+            dragRotX = 0.16;
+            cameraZoom = 4.15;
+            selectedThreeModeIdx = 0;
+            renderStage();
+          });
+        }
+
+        stageContainer.querySelectorAll(".capsule").forEach((el) => {
+          el.addEventListener("click", () => {
+            openCapsuleIdx = Number(el.dataset.cap);
+            renderStage();
+          });
+        });
+
+      } else {
+        const activeZone = ZONES[selectedZoneIdx];
+        const safeWineryIdx = Math.min(selectedWineryInZoneIdx, activeZone.wineries.length - 1);
+        const activeWinery = activeZone.wineries[safeWineryIdx];
+
+        stageContainer.innerHTML = `
+          <section class="map-stage">
+            <div class="chile-map-card">
+              <div class="map-caption">
+                <span>Mapa de Chile · Valles</span>
+                <span>Toca un valle</span>
+              </div>
+              <div class="chile-map-frame" id="chile-map-frame">
+                <svg class="chile-vector-svg" viewBox="22 8 242 384" aria-label="Contorno territorial de Chile con regiones y valles vitivinícolas">
+                  <path class="chile-outline-stroke" d="M106,13 L110,21 L109,32 L112,44 L110,56 L113,69 L121,78 L131,84 L128,92 L119,98 L113,108 L111,120 L108,133 L110,145 L106,158 L104,171 L102,184 L99,196 L101,207 L97,216 L102,224 L97,232 L100,244 L105,256 L99,267 L96,279 L101,288 L94,298 L91,310 L96,319 L89,329 L93,339 L87,349 L92,357 L112,359 L124,362 L120,371 L107,377 L94,376 L85,368 L81,354 L78,338 L76,320 L79,302 L77,284 L80,266 L83,247 L86,227 L89,207 L92,187 L95,166 L97,145 L98,122 L99,98 L98,73 L100,47 L102,24 Z" />
+
+                  ${ZONES.map((item, idx) => `
+                    <g class="winery-pin ${idx === selectedZoneIdx ? "active" : ""}" data-winery="${idx}" transform="translate(${item.x}, ${item.y})">
+                      <line class="region-pointer-line" x1="-34" y1="0" x2="-6" y2="0"></line>
+                      <text class="region-num-label" x="-38" y="3.5">${item.regionNum}</text>
+                      <circle class="pulse-ring" cx="0" cy="0" r="8"></circle>
+                      <circle class="core" cx="0" cy="0" r="5"></circle>
+                      <text class="valley-label" x="15" y="3.5">${item.zoneName}</text>
+                    </g>
+                  `).join("")}
+                </svg>
+              </div>
+              <div class="map-caption">
+                <span>Norte</span>
+                <span>Sur</span>
+              </div>
+            </div>
+
+            <aside class="map-right-col">
+              ${!isWineryModalOpen ? `
+                <div class="zone-capsules-box full-height">
+                  <div class="zone-capsules-header">
+                    <span>Zonas · Selecciona para abrir ficha de viña</span>
+                    <span>Regiones V – VII</span>
+                  </div>
+                  <div class="zone-capsule-list full-grid">
+                    ${ZONES.map((item, idx) => `
+                      <button type="button" class="zone-capsule-chip" data-zone-chip="${idx}">
+                        <div class="zone-chip-top">
+                          <span class="zone-chip-reg">Región ${item.regionNum}</span>
+                          <span class="zone-chip-count">${item.wineries.length} viñas</span>
+                        </div>
+                        <span class="zone-chip-name">${item.zoneName}</span>
+                        <span class="zone-chip-action">Abrir información de viña →</span>
+                      </button>
+                    `).join("")}
+                  </div>
+                </div>
+              ` : `
+                <div class="winery-detail-modal" role="region" aria-label="Ventana de información de la viña">
+                  <div>
+                    <div class="winery-modal-top">
+                      <span class="hito-badge">Región ${activeZone.regionNum} · ${activeZone.valley} (${activeZone.coords})</span>
+                      <button type="button" class="pill-btn" id="btn-close-winery-modal">← Volver a zonas</button>
+                    </div>
+                    <div class="winery-switcher" role="tablist" aria-label="Viñas de la zona">
+                      ${activeZone.wineries.map((w, wIdx) => `
+                        <button type="button" class="winery-tab-btn ${wIdx === safeWineryIdx ? "active" : ""}" data-winery-tab="${wIdx}">
+                          ${w.name.split("·")[0].trim()}
+                        </button>
+                      `).join("")}
+                    </div>
+                    <h2>${activeWinery.name}</h2>
+                    <p class="lead" style="margin-top: 5px;">${activeWinery.summary}</p>
+                    <div class="winery-facts-grid">
+                      <div class="winery-fact-card">
+                        <span class="winery-fact-label">Suelo y entorno</span>
+                        <span class="winery-fact-value">${activeWinery.soil}</span>
+                      </div>
+                      <div class="winery-fact-card">
+                        <span class="winery-fact-label">Perfil del Carménère</span>
+                        <span class="winery-fact-value">${activeWinery.style}</span>
+                      </div>
+                      <div class="winery-fact-card">
+                        <span class="winery-fact-label">Aporte en el valle</span>
+                        <span class="winery-fact-value">${activeWinery.legacy}</span>
+                      </div>
+                    </div>
+                    <div class="winery-facts-grid">
+                      <div class="winery-fact-card">
+                        <span class="winery-fact-label">Clima y microclima</span>
+                        <span class="winery-fact-value">${activeWinery.climate}</span>
+                      </div>
+                      <div class="winery-fact-card">
+                        <span class="winery-fact-label">Manejo en viñedo</span>
+                        <span class="winery-fact-value">${activeWinery.viticulture}</span>
+                      </div>
+                      <div class="winery-fact-card">
+                        <span class="winery-fact-label">Lectura en copa</span>
+                        <span class="winery-fact-value">${activeWinery.tastingNote}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="winery-highlight-box">
+                    <strong>Dato relevante</strong>
+                    ${activeWinery.relevantFact}
+                  </div>
+                </div>
+              `}
+
+              <div class="stage-footer-status">
+                <span class="step-counter">Hito 4 de 4</span>
+              </div>
+            </aside>
+          </section>
+        `;
+
+        stageContainer.querySelectorAll(".winery-pin").forEach((pin) => {
+          pin.addEventListener("click", () => {
+            selectedZoneIdx = Number(pin.dataset.winery);
+            selectedWineryInZoneIdx = 0;
+            isWineryModalOpen = true;
+            renderStage();
+          });
+        });
+
+        stageContainer.querySelectorAll("[data-zone-chip]").forEach((chip) => {
+          chip.addEventListener("click", () => {
+            selectedZoneIdx = Number(chip.dataset.zoneChip);
+            selectedWineryInZoneIdx = 0;
+            isWineryModalOpen = true;
+            renderStage();
+          });
+        });
+
+        stageContainer.querySelectorAll("[data-winery-tab]").forEach((tab) => {
+          tab.addEventListener("click", () => {
+            selectedWineryInZoneIdx = Number(tab.dataset.wineryTab);
+            isWineryModalOpen = true;
+            renderStage();
+          });
+        });
+
+        const closeModalBtn = document.getElementById("btn-close-winery-modal");
+        if (closeModalBtn) {
+          closeModalBtn.addEventListener("click", () => {
+            isWineryModalOpen = false;
+            renderStage();
+          });
+        }
+      }
+    }
+
+    hitoNodes.forEach((node) => {
+      node.addEventListener("click", () => openHitoWindow(Number(node.dataset.index)));
+    });
+
+    arrowYearChips.forEach((chip) => {
+      chip.addEventListener("click", () => openHitoWindow(Number(chip.dataset.index)));
+    });
+
+    quickHitoBtns.forEach((btn) => {
+      btn.addEventListener("click", () => openHitoWindow(Number(btn.dataset.quick)));
+    });
+
+    // Permisos de cámara + monitor gestual siempre visible + pellizco estable + deslizamiento de palma
+    const btnCamIntro = document.getElementById("btn-cam-intro");
+    const btnCamShell = document.getElementById("btn-cam-shell");
+    const btnCamStrip = document.getElementById("btn-cam-strip");
+    const introCamStatus = document.getElementById("intro-cam-status");
+    const cameraPlaceholder = document.getElementById("camera-placeholder");
+    const gestureCanvas = document.getElementById("gesture-canvas");
+    const gestureCtx = gestureCanvas.getContext("2d");
+    const gestureStateEl = document.getElementById("gesture-state");
+    const gestureDetailEl = document.getElementById("gesture-detail");
+    const handCursor = document.getElementById("hand-cursor");
+    const videoEl = document.getElementById("cam");
+
+    let camActive = false;
+    let smoothedPinchDist = 0.15;
+    let pinchLocked = false;
+    let pinchHoldFrames = 0;
+    let lastPinchTime = 0;
+
+    const palmHistory = [];
+    let lastSwipeTime = 0;
+
+    function isHandOpenForSwipe(lm) {
+      const wrist = lm[0];
+      const tips = [8, 12, 16, 20];
+      const avgTipDist = tips.reduce((acc, idx) => acc + Math.hypot(lm[idx].x - wrist.x, lm[idx].y - wrist.y), 0) / tips.length;
+      return avgTipDist > 0.24;
+    }
+
+    function detectPalmSwipe(lm, now) {
+      const palmX = (1 - ((lm[0].x + lm[9].x) * 0.5));
+      palmHistory.push({ x: palmX, t: now });
+      while (palmHistory.length > 0 && now - palmHistory[0].t > 340) {
+        palmHistory.shift();
+      }
+      if (palmHistory.length < 4 || now - lastSwipeTime < 950) return null;
+
+      const dx = palmHistory[palmHistory.length - 1].x - palmHistory[0].x;
+      if (Math.abs(dx) > 0.17 && isHandOpenForSwipe(lm)) {
+        lastSwipeTime = now;
+        palmHistory.length = 0;
+        return dx > 0 ? 1 : -1;
+      }
+      return null;
+    }
+
+    function drawHandMonitor(landmarks, isPinching) {
+      const w = gestureCanvas.width;
+      const h = gestureCanvas.height;
+      gestureCtx.clearRect(0, 0, w, h);
+
+      gestureCtx.save();
+      gestureCtx.translate(w, 0);
+      gestureCtx.scale(-1, 1);
+      gestureCtx.drawImage(videoEl, 0, 0, w, h);
+      gestureCtx.restore();
+
+      gestureCtx.fillStyle = "rgba(38, 2, 9, 0.25)";
+      gestureCtx.fillRect(0, 0, w, h);
+
+      if (!landmarks) return;
+
+      const pts = landmarks.map((lm) => ({
+        x: (1 - lm.x) * w,
+        y: lm.y * h
+      }));
+
+      gestureCtx.strokeStyle = isPinching ? "#F2E5C6" : "rgba(242, 217, 160, 0.78)";
+      gestureCtx.lineWidth = 2.2;
+      HAND_CONNECTIONS.forEach(([a, b]) => {
+        gestureCtx.beginPath();
+        gestureCtx.moveTo(pts[a].x, pts[a].y);
+        gestureCtx.lineTo(pts[b].x, pts[b].y);
+        gestureCtx.stroke();
+      });
+
+      pts.forEach((p, idx) => {
+        const isTip = idx === 4 || idx === 8;
+        gestureCtx.beginPath();
+        gestureCtx.arc(p.x, p.y, isTip ? 6 : 3.5, 0, Math.PI * 2);
+        gestureCtx.fillStyle = isPinching && isTip ? "#F2D9A0" : (isTip ? "#F2E5C6" : "#75162D");
+        gestureCtx.fill();
+        gestureCtx.lineWidth = 1.5;
+        gestureCtx.strokeStyle = "#F2D9A0";
+        gestureCtx.stroke();
+      });
+
+      gestureCtx.beginPath();
+      gestureCtx.moveTo(pts[4].x, pts[4].y);
+      gestureCtx.lineTo(pts[8].x, pts[8].y);
+      gestureCtx.setLineDash([4, 4]);
+      gestureCtx.strokeStyle = isPinching ? "#F2D9A0" : "rgba(242, 229, 198, 0.55)";
+      gestureCtx.lineWidth = 2;
+      gestureCtx.stroke();
+      gestureCtx.setLineDash([]);
+    }
+
+    async function requestCameraPermission() {
+      if (camActive) return;
+      introCamStatus.textContent = "Estado: Solicitando permiso de cámara...";
+      btnCamShell.textContent = "Solicitando...";
+      gestureStateEl.textContent = "Solicitando permiso...";
+      gestureDetailEl.textContent = "Acepta la solicitud de cámara en el navegador.";
+      try {
+        const hands = new Hands({
+          locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+        });
+        hands.setOptions({
+          maxNumHands: 1,
+          modelComplexity: 1,
+          minDetectionConfidence: 0.68,
+          minTrackingConfidence: 0.68
+        });
+
+        hands.onResults((results) => {
+          const now = performance.now();
+          if (results.multiHandLandmarks && results.multiHandLandmarks.length > 0) {
+            const lm = results.multiHandLandmarks[0];
+            const indexTip = lm[8];
+            const thumbTip = lm[4];
+
+            const xScreen = (1 - indexTip.x) * window.innerWidth;
+            const yScreen = indexTip.y * window.innerHeight;
+            handTiltX = ((1 - indexTip.x) - 0.5) * 2;
+            handTiltY = (indexTip.y - 0.5) * 2;
+
+            handCursor.style.display = "block";
+            handCursor.style.left = `${xScreen}px`;
+            handCursor.style.top = `${yScreen}px`;
+
+            const rawDist = Math.hypot(indexTip.x - thumbTip.x, indexTip.y - thumbTip.y);
+            smoothedPinchDist = smoothedPinchDist * 0.65 + rawDist * 0.35;
+
+            if (!pinchLocked && smoothedPinchDist < 0.042) {
+              pinchHoldFrames += 1;
+            } else if (pinchLocked && smoothedPinchDist > 0.062) {
+              pinchLocked = false;
+              pinchHoldFrames = 0;
+            } else if (!pinchLocked) {
+              pinchHoldFrames = Math.max(0, pinchHoldFrames - 1);
+            }
+
+            const isPinching = pinchLocked || pinchHoldFrames >= 3;
+            drawHandMonitor(lm, isPinching);
+
+            const swipeDir = !isPinching ? detectPalmSwipe(lm, now) : null;
+            if (swipeDir !== null) {
+              shiftHito(swipeDir);
+              gestureStateEl.textContent = swipeDir > 0 ? "Deslizar palma → Siguiente hito" : "Deslizar palma ← Hito anterior";
+              gestureDetailEl.textContent = `Cambiaste a Hito ${currentHito + 1} de 4.`;
+              telemetryGestureModeEl.textContent = swipeDir > 0 ? "Gesto: palma →" : "Gesto: palma ←";
+              return;
+            }
+
+            if (isPinching) {
+              gestureStateEl.textContent = "Pellizco estable";
+              gestureDetailEl.textContent = "Pulgar e índice unidos: accionando elemento bajo el índice.";
+              telemetryGestureModeEl.textContent = "Gesto: pellizco activo";
+              handCursor.style.background = "rgba(242, 217, 160, 0.88)";
+              if (!pinchLocked && now - lastPinchTime > 750) {
+                pinchLocked = true;
+                lastPinchTime = now;
+                const targetEl = document.elementFromPoint(xScreen, yScreen);
+                if (targetEl) {
+                  const clickable = targetEl.closest("button, .capsule, .winery-pin");
+                  if (clickable) clickable.dispatchEvent(new Event("click", { bubbles: true }));
+                }
+              }
+            } else {
+              gestureStateEl.textContent = "Mano abierta / Guía";
+              gestureDetailEl.textContent = "Índice mueve el puntero; junta pulgar e índice para seleccionar; desliza la palma para cambiar de hito.";
+              telemetryGestureModeEl.textContent = "Gesto: índice guía";
+              handCursor.style.background = "rgba(117, 22, 45, 0.45)";
+            }
+          } else {
+            palmHistory.length = 0;
+            pinchHoldFrames = 0;
+            pinchLocked = false;
+            if (!mouseAssistEnabled) handCursor.style.display = "none";
+            handTiltX *= 0.92;
+            handTiltY *= 0.92;
+            drawHandMonitor(null, false);
+            gestureStateEl.textContent = "Esperando mano";
+            gestureDetailEl.textContent = "Cámara activa. Acerca tu mano frente al lente.";
+            telemetryGestureModeEl.textContent = "Gesto: en espera";
+          }
+        });
+
+        const mpCam = new Camera(videoEl, {
+          onFrame: async () => { await hands.send({ image: videoEl }); },
+          width: 640,
+          height: 480
+        });
+        await mpCam.start();
+        camActive = true;
+        cameraPlaceholder.classList.add("hidden");
+        introCamStatus.textContent = "Estado: Permiso de cámara concedido";
+        gestureStateEl.textContent = "Cámara lista";
+        gestureDetailEl.textContent = "Mostrando video en espejo, índice como puntero, pellizco estable y deslizamiento de palma.";
+        telemetryGestureModeEl.textContent = "Gesto: listo";
+        btnCamIntro.textContent = "Cámara autorizada";
+        btnCamIntro.classList.add("active");
+        btnCamShell.textContent = "Cámara autorizada";
+        btnCamShell.classList.add("active");
+      } catch (e) {
+        introCamStatus.textContent = "Estado: Permiso pendiente o cámara no disponible";
+        gestureStateEl.textContent = "Cámara pendiente";
+        gestureDetailEl.textContent = "No se pudo iniciar la cámara. Revisa los permisos del navegador.";
+        telemetryGestureModeEl.textContent = "Gesto: sin cámara";
+        btnCamIntro.textContent = "Solicitar permiso de cámara";
+        btnCamShell.textContent = "Solicitar permiso de cámara";
+      }
+    }
+
+    btnCamIntro.addEventListener("click", requestCameraPermission);
+    btnCamShell.addEventListener("click", requestCameraPermission);
+    btnCamStrip.addEventListener("click", requestCameraPermission);
+  </script>
+</body>
+</html>
